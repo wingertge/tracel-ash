@@ -58,7 +58,6 @@ extern crate alloc;
 use alloc::vec::Vec;
 use core::{mem, ptr};
 
-#[cfg(feature = "loaded")]
 pub use crate::extensions_generated::*;
 pub use crate::tables::*;
 
