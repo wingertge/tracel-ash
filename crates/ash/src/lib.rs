@@ -42,9 +42,9 @@
 //!
 //! ## Getting started
 //!
-//! Load the Vulkan library linked at compile time using [`Entry::linked()`], or load it at runtime
-//! using [`Entry::load()`], which uses `libloading`. If you want to perform entry point loading
-//! yourself, call [`Entry::from_static_fn()`].
+//! Load the Vulkan library linked at compile time using [`ash::Entry::linked()`], or load it at runtime
+//! using [`ash::Entry::load()`], which uses `libloading`. If you want to perform entry point loading
+//! yourself, call [`ash::Entry::from_static_fn()`].
 //!
 //! ## Crate features
 //!
@@ -123,7 +123,7 @@ impl<T> RawMutPtr<T> for Option<&mut T> {
 /// }
 /// ```
 ///
-/// See the [`match_out_struct!`] documentation for an example with implicit return values.
+/// See the `match_out_struct!` documentation for an example with implicit return values.
 #[macro_export]
 macro_rules! match_in_struct {
     (match $p:ident { $($bind:ident @ $ty:path => $body:block $(,)?)+ $(_ => $any:block $(,)?)? }) => {
