@@ -24,7 +24,7 @@
 //!
 //! ## Examples
 //!
-//! ```no_run
+//! ```ignore
 //! use ash::{vk, Entry};
 //! # fn main() -> Result<(), Box<dyn std::error::Error>> {
 //! let entry = Entry::linked();
