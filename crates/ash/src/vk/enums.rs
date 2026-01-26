@@ -1,7 +1,7 @@
 use core::fmt;
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageLayout.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageLayout.html>"]
 pub struct ImageLayout(pub(crate) i32);
 impl ImageLayout {
     #[inline]
@@ -14,28 +14,28 @@ impl ImageLayout {
     }
 }
 impl ImageLayout {
-    ///Implicit layout an image is when its contents are undefined due to various reasons (e.g. right after creation)
+    #[doc = "Implicit layout an image is when its contents are undefined due to various reasons (e.g. right after creation)"]
     pub const UNDEFINED: Self = Self(0);
-    ///General layout when image can be used for any kind of access
+    #[doc = "General layout when image can be used for any kind of access"]
     pub const GENERAL: Self = Self(1);
-    ///Optimal layout when image is only used for color attachment read/write
+    #[doc = "Optimal layout when image is only used for color attachment read/write"]
     pub const COLOR_ATTACHMENT_OPTIMAL: Self = Self(2);
-    ///Optimal layout when image is only used for depth/stencil attachment read/write
+    #[doc = "Optimal layout when image is only used for depth/stencil attachment read/write"]
     pub const DEPTH_STENCIL_ATTACHMENT_OPTIMAL: Self = Self(3);
-    ///Optimal layout when image is used for read only depth/stencil attachment and shader access
+    #[doc = "Optimal layout when image is used for read only depth/stencil attachment and shader access"]
     pub const DEPTH_STENCIL_READ_ONLY_OPTIMAL: Self = Self(4);
-    ///Optimal layout when image is used for read only shader access
+    #[doc = "Optimal layout when image is used for read only shader access"]
     pub const SHADER_READ_ONLY_OPTIMAL: Self = Self(5);
-    ///Optimal layout when image is used only as source of transfer operations
+    #[doc = "Optimal layout when image is used only as source of transfer operations"]
     pub const TRANSFER_SRC_OPTIMAL: Self = Self(6);
-    ///Optimal layout when image is used only as destination of transfer operations
+    #[doc = "Optimal layout when image is used only as destination of transfer operations"]
     pub const TRANSFER_DST_OPTIMAL: Self = Self(7);
-    ///Initial layout used when the data is populated by the CPU
+    #[doc = "Initial layout used when the data is populated by the CPU"]
     pub const PREINITIALIZED: Self = Self(8);
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentLoadOp.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentLoadOp.html>"]
 pub struct AttachmentLoadOp(pub(crate) i32);
 impl AttachmentLoadOp {
     #[inline]
@@ -54,7 +54,7 @@ impl AttachmentLoadOp {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentStoreOp.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAttachmentStoreOp.html>"]
 pub struct AttachmentStoreOp(pub(crate) i32);
 impl AttachmentStoreOp {
     #[inline]
@@ -72,7 +72,7 @@ impl AttachmentStoreOp {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageType.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageType.html>"]
 pub struct ImageType(pub(crate) i32);
 impl ImageType {
     #[inline]
@@ -91,7 +91,7 @@ impl ImageType {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageTiling.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageTiling.html>"]
 pub struct ImageTiling(pub(crate) i32);
 impl ImageTiling {
     #[inline]
@@ -109,7 +109,7 @@ impl ImageTiling {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageViewType.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkImageViewType.html>"]
 pub struct ImageViewType(pub(crate) i32);
 impl ImageViewType {
     #[inline]
@@ -132,7 +132,7 @@ impl ImageViewType {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferLevel.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCommandBufferLevel.html>"]
 pub struct CommandBufferLevel(pub(crate) i32);
 impl CommandBufferLevel {
     #[inline]
@@ -150,7 +150,7 @@ impl CommandBufferLevel {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkComponentSwizzle.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkComponentSwizzle.html>"]
 pub struct ComponentSwizzle(pub(crate) i32);
 impl ComponentSwizzle {
     #[inline]
@@ -173,7 +173,7 @@ impl ComponentSwizzle {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorType.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorType.html>"]
 pub struct DescriptorType(pub(crate) i32);
 impl DescriptorType {
     #[inline]
@@ -200,7 +200,7 @@ impl DescriptorType {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryType.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryType.html>"]
 pub struct QueryType(pub(crate) i32);
 impl QueryType {
     #[inline]
@@ -214,13 +214,13 @@ impl QueryType {
 }
 impl QueryType {
     pub const OCCLUSION: Self = Self(0);
-    ///Optional
+    #[doc = "Optional"]
     pub const PIPELINE_STATISTICS: Self = Self(1);
     pub const TIMESTAMP: Self = Self(2);
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBorderColor.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBorderColor.html>"]
 pub struct BorderColor(pub(crate) i32);
 impl BorderColor {
     #[inline]
@@ -242,7 +242,7 @@ impl BorderColor {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineBindPoint.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineBindPoint.html>"]
 pub struct PipelineBindPoint(pub(crate) i32);
 impl PipelineBindPoint {
     #[inline]
@@ -260,7 +260,7 @@ impl PipelineBindPoint {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineCacheHeaderVersion.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineCacheHeaderVersion.html>"]
 pub struct PipelineCacheHeaderVersion(pub(crate) i32);
 impl PipelineCacheHeaderVersion {
     #[inline]
@@ -277,7 +277,7 @@ impl PipelineCacheHeaderVersion {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPrimitiveTopology.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPrimitiveTopology.html>"]
 pub struct PrimitiveTopology(pub(crate) i32);
 impl PrimitiveTopology {
     #[inline]
@@ -304,7 +304,7 @@ impl PrimitiveTopology {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSharingMode.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSharingMode.html>"]
 pub struct SharingMode(pub(crate) i32);
 impl SharingMode {
     #[inline]
@@ -322,7 +322,7 @@ impl SharingMode {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkIndexType.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkIndexType.html>"]
 pub struct IndexType(pub(crate) i32);
 impl IndexType {
     #[inline]
@@ -340,7 +340,7 @@ impl IndexType {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFilter.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFilter.html>"]
 pub struct Filter(pub(crate) i32);
 impl Filter {
     #[inline]
@@ -358,7 +358,7 @@ impl Filter {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerMipmapMode.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerMipmapMode.html>"]
 pub struct SamplerMipmapMode(pub(crate) i32);
 impl SamplerMipmapMode {
     #[inline]
@@ -371,14 +371,14 @@ impl SamplerMipmapMode {
     }
 }
 impl SamplerMipmapMode {
-    ///Choose nearest mip level
+    #[doc = "Choose nearest mip level"]
     pub const NEAREST: Self = Self(0);
-    ///Linear filter between mip levels
+    #[doc = "Linear filter between mip levels"]
     pub const LINEAR: Self = Self(1);
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerAddressMode.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerAddressMode.html>"]
 pub struct SamplerAddressMode(pub(crate) i32);
 impl SamplerAddressMode {
     #[inline]
@@ -398,7 +398,7 @@ impl SamplerAddressMode {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCompareOp.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCompareOp.html>"]
 pub struct CompareOp(pub(crate) i32);
 impl CompareOp {
     #[inline]
@@ -422,7 +422,7 @@ impl CompareOp {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPolygonMode.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPolygonMode.html>"]
 pub struct PolygonMode(pub(crate) i32);
 impl PolygonMode {
     #[inline]
@@ -441,7 +441,7 @@ impl PolygonMode {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFrontFace.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFrontFace.html>"]
 pub struct FrontFace(pub(crate) i32);
 impl FrontFace {
     #[inline]
@@ -459,7 +459,7 @@ impl FrontFace {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBlendFactor.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBlendFactor.html>"]
 pub struct BlendFactor(pub(crate) i32);
 impl BlendFactor {
     #[inline]
@@ -494,7 +494,7 @@ impl BlendFactor {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBlendOp.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBlendOp.html>"]
 pub struct BlendOp(pub(crate) i32);
 impl BlendOp {
     #[inline]
@@ -515,7 +515,7 @@ impl BlendOp {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStencilOp.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStencilOp.html>"]
 pub struct StencilOp(pub(crate) i32);
 impl StencilOp {
     #[inline]
@@ -539,7 +539,7 @@ impl StencilOp {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLogicOp.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLogicOp.html>"]
 pub struct LogicOp(pub(crate) i32);
 impl LogicOp {
     #[inline]
@@ -571,7 +571,7 @@ impl LogicOp {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkInternalAllocationType.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkInternalAllocationType.html>"]
 pub struct InternalAllocationType(pub(crate) i32);
 impl InternalAllocationType {
     #[inline]
@@ -588,7 +588,7 @@ impl InternalAllocationType {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSystemAllocationScope.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSystemAllocationScope.html>"]
 pub struct SystemAllocationScope(pub(crate) i32);
 impl SystemAllocationScope {
     #[inline]
@@ -609,7 +609,7 @@ impl SystemAllocationScope {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceType.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceType.html>"]
 pub struct PhysicalDeviceType(pub(crate) i32);
 impl PhysicalDeviceType {
     #[inline]
@@ -630,7 +630,7 @@ impl PhysicalDeviceType {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVertexInputRate.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVertexInputRate.html>"]
 pub struct VertexInputRate(pub(crate) i32);
 impl VertexInputRate {
     #[inline]
@@ -648,7 +648,7 @@ impl VertexInputRate {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFormat.html>"]
 pub struct Format(pub(crate) i32);
 impl Format {
     #[inline]
@@ -849,7 +849,7 @@ impl Format {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkStructureType.html>"]
 pub struct StructureType(pub(crate) i32);
 impl StructureType {
     #[inline]
@@ -909,14 +909,14 @@ impl StructureType {
     pub const BUFFER_MEMORY_BARRIER: Self = Self(44);
     pub const IMAGE_MEMORY_BARRIER: Self = Self(45);
     pub const MEMORY_BARRIER: Self = Self(46);
-    ///Reserved for internal use by the loader, layers, and ICDs
+    #[doc = "Reserved for internal use by the loader, layers, and ICDs"]
     pub const LOADER_INSTANCE_CREATE_INFO: Self = Self(47);
-    ///Reserved for internal use by the loader, layers, and ICDs
+    #[doc = "Reserved for internal use by the loader, layers, and ICDs"]
     pub const LOADER_DEVICE_CREATE_INFO: Self = Self(48);
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubpassContents.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubpassContents.html>"]
 pub struct SubpassContents(pub(crate) i32);
 impl SubpassContents {
     #[inline]
@@ -934,7 +934,7 @@ impl SubpassContents {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkResult.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkResult.html>"]
 #[must_use]
 pub struct Result(pub(crate) i32);
 impl Result {
@@ -948,99 +948,50 @@ impl Result {
     }
 }
 impl Result {
-    ///Command completed successfully
+    #[doc = "Command completed successfully"]
     pub const SUCCESS: Self = Self(0);
-    ///A fence or query has not yet completed
+    #[doc = "A fence or query has not yet completed"]
     pub const NOT_READY: Self = Self(1);
-    ///A wait operation has not completed in the specified time
+    #[doc = "A wait operation has not completed in the specified time"]
     pub const TIMEOUT: Self = Self(2);
-    ///An event is signaled
+    #[doc = "An event is signaled"]
     pub const EVENT_SET: Self = Self(3);
-    ///An event is unsignaled
+    #[doc = "An event is unsignaled"]
     pub const EVENT_RESET: Self = Self(4);
-    ///A return array was too small for the result
+    #[doc = "A return array was too small for the result"]
     pub const INCOMPLETE: Self = Self(5);
-    ///A host memory allocation has failed
+    #[doc = "A host memory allocation has failed"]
     pub const ERROR_OUT_OF_HOST_MEMORY: Self = Self(-1);
-    ///A device memory allocation has failed
+    #[doc = "A device memory allocation has failed"]
     pub const ERROR_OUT_OF_DEVICE_MEMORY: Self = Self(-2);
-    ///Initialization of an object has failed
+    #[doc = "Initialization of an object has failed"]
     pub const ERROR_INITIALIZATION_FAILED: Self = Self(-3);
-    ///The logical device has been lost. See <https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#devsandqueues-lost-device>
+    #[doc = "The logical device has been lost. See <https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#devsandqueues-lost-device>"]
     pub const ERROR_DEVICE_LOST: Self = Self(-4);
-    ///Mapping of a memory object has failed
+    #[doc = "Mapping of a memory object has failed"]
     pub const ERROR_MEMORY_MAP_FAILED: Self = Self(-5);
-    ///Layer specified does not exist
+    #[doc = "Layer specified does not exist"]
     pub const ERROR_LAYER_NOT_PRESENT: Self = Self(-6);
-    ///Extension specified does not exist
+    #[doc = "Extension specified does not exist"]
     pub const ERROR_EXTENSION_NOT_PRESENT: Self = Self(-7);
-    ///Requested feature is not available on this device
+    #[doc = "Requested feature is not available on this device"]
     pub const ERROR_FEATURE_NOT_PRESENT: Self = Self(-8);
-    ///Unable to find a Vulkan driver
+    #[doc = "Unable to find a Vulkan driver"]
     pub const ERROR_INCOMPATIBLE_DRIVER: Self = Self(-9);
-    ///Too many objects of the type have already been created
+    #[doc = "Too many objects of the type have already been created"]
     pub const ERROR_TOO_MANY_OBJECTS: Self = Self(-10);
-    ///Requested format is not supported on this device
+    #[doc = "Requested format is not supported on this device"]
     pub const ERROR_FORMAT_NOT_SUPPORTED: Self = Self(-11);
-    ///A requested pool allocation has failed due to fragmentation of the pool's memory
+    #[doc = "A requested pool allocation has failed due to fragmentation of the pool's memory"]
     pub const ERROR_FRAGMENTED_POOL: Self = Self(-12);
-    ///An unknown error has occurred, due to an implementation or application bug
+    #[doc = "An unknown error has occurred, due to an implementation or application bug"]
     pub const ERROR_UNKNOWN: Self = Self(-13);
 }
 #[cfg(feature = "std")]
 impl std::error::Error for Result {}
 impl fmt::Display for Result {
     fn fmt(&self, fmt: &mut fmt::Formatter<'_>) -> fmt::Result {
-        let name = match *self {
-            Self::SUCCESS => Some("Command completed successfully"),
-            Self::NOT_READY => Some("A fence or query has not yet completed"),
-            Self::TIMEOUT => {
-                Some("A wait operation has not completed in the specified time")
-            }
-            Self::EVENT_SET => Some("An event is signaled"),
-            Self::EVENT_RESET => Some("An event is unsignaled"),
-            Self::INCOMPLETE => Some("A return array was too small for the result"),
-            Self::ERROR_OUT_OF_HOST_MEMORY => Some("A host memory allocation has failed"),
-            Self::ERROR_OUT_OF_DEVICE_MEMORY => {
-                Some("A device memory allocation has failed")
-            }
-            Self::ERROR_INITIALIZATION_FAILED => {
-                Some("Initialization of an object has failed")
-            }
-            Self::ERROR_DEVICE_LOST => {
-                Some(
-                    "The logical device has been lost. See <https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#devsandqueues-lost-device>",
-                )
-            }
-            Self::ERROR_MEMORY_MAP_FAILED => {
-                Some("Mapping of a memory object has failed")
-            }
-            Self::ERROR_LAYER_NOT_PRESENT => Some("Layer specified does not exist"),
-            Self::ERROR_EXTENSION_NOT_PRESENT => {
-                Some("Extension specified does not exist")
-            }
-            Self::ERROR_FEATURE_NOT_PRESENT => {
-                Some("Requested feature is not available on this device")
-            }
-            Self::ERROR_INCOMPATIBLE_DRIVER => Some("Unable to find a Vulkan driver"),
-            Self::ERROR_TOO_MANY_OBJECTS => {
-                Some("Too many objects of the type have already been created")
-            }
-            Self::ERROR_FORMAT_NOT_SUPPORTED => {
-                Some("Requested format is not supported on this device")
-            }
-            Self::ERROR_FRAGMENTED_POOL => {
-                Some(
-                    "A requested pool allocation has failed due to fragmentation of the pool's memory",
-                )
-            }
-            Self::ERROR_UNKNOWN => {
-                Some(
-                    "An unknown error has occurred, due to an implementation or application bug",
-                )
-            }
-            _ => None,
-        };
+        let name = match * self { Self :: SUCCESS => Some ("Command completed successfully") , Self :: NOT_READY => Some ("A fence or query has not yet completed") , Self :: TIMEOUT => Some ("A wait operation has not completed in the specified time") , Self :: EVENT_SET => Some ("An event is signaled") , Self :: EVENT_RESET => Some ("An event is unsignaled") , Self :: INCOMPLETE => Some ("A return array was too small for the result") , Self :: ERROR_OUT_OF_HOST_MEMORY => Some ("A host memory allocation has failed") , Self :: ERROR_OUT_OF_DEVICE_MEMORY => Some ("A device memory allocation has failed") , Self :: ERROR_INITIALIZATION_FAILED => Some ("Initialization of an object has failed") , Self :: ERROR_DEVICE_LOST => Some ("The logical device has been lost. See <https://registry.khronos.org/vulkan/specs/1.3-extensions/html/vkspec.html#devsandqueues-lost-device>") , Self :: ERROR_MEMORY_MAP_FAILED => Some ("Mapping of a memory object has failed") , Self :: ERROR_LAYER_NOT_PRESENT => Some ("Layer specified does not exist") , Self :: ERROR_EXTENSION_NOT_PRESENT => Some ("Extension specified does not exist") , Self :: ERROR_FEATURE_NOT_PRESENT => Some ("Requested feature is not available on this device") , Self :: ERROR_INCOMPATIBLE_DRIVER => Some ("Unable to find a Vulkan driver") , Self :: ERROR_TOO_MANY_OBJECTS => Some ("Too many objects of the type have already been created") , Self :: ERROR_FORMAT_NOT_SUPPORTED => Some ("Requested format is not supported on this device") , Self :: ERROR_FRAGMENTED_POOL => Some ("A requested pool allocation has failed due to fragmentation of the pool's memory") , Self :: ERROR_UNKNOWN => Some ("An unknown error has occurred, due to an implementation or application bug") , _ => None , } ;
         if let Some(x) = name {
             fmt.write_str(x)
         } else {
@@ -1050,7 +1001,7 @@ impl fmt::Display for Result {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDynamicState.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDynamicState.html>"]
 pub struct DynamicState(pub(crate) i32);
 impl DynamicState {
     #[inline]
@@ -1075,7 +1026,7 @@ impl DynamicState {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorUpdateTemplateType.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorUpdateTemplateType.html>"]
 pub struct DescriptorUpdateTemplateType(pub(crate) i32);
 impl DescriptorUpdateTemplateType {
     #[inline]
@@ -1088,12 +1039,12 @@ impl DescriptorUpdateTemplateType {
     }
 }
 impl DescriptorUpdateTemplateType {
-    ///Create descriptor update template for descriptor set updates
+    #[doc = "Create descriptor update template for descriptor set updates"]
     pub const DESCRIPTOR_SET: Self = Self(0);
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkObjectType.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkObjectType.html>"]
 pub struct ObjectType(pub(crate) i32);
 impl ObjectType {
     #[inline]
@@ -1135,7 +1086,7 @@ impl ObjectType {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRayTracingInvocationReorderModeEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRayTracingInvocationReorderModeEXT.html>"]
 pub struct RayTracingInvocationReorderModeEXT(pub(crate) i32);
 impl RayTracingInvocationReorderModeEXT {
     #[inline]
@@ -1153,7 +1104,7 @@ impl RayTracingInvocationReorderModeEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRayTracingLssIndexingModeNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRayTracingLssIndexingModeNV.html>"]
 pub struct RayTracingLssIndexingModeNV(pub(crate) i32);
 impl RayTracingLssIndexingModeNV {
     #[inline]
@@ -1171,7 +1122,7 @@ impl RayTracingLssIndexingModeNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRayTracingLssPrimitiveEndCapsModeNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRayTracingLssPrimitiveEndCapsModeNV.html>"]
 pub struct RayTracingLssPrimitiveEndCapsModeNV(pub(crate) i32);
 impl RayTracingLssPrimitiveEndCapsModeNV {
     #[inline]
@@ -1189,7 +1140,7 @@ impl RayTracingLssPrimitiveEndCapsModeNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDirectDriverLoadingModeLUNARG.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDirectDriverLoadingModeLUNARG.html>"]
 pub struct DirectDriverLoadingModeLUNARG(pub(crate) i32);
 impl DirectDriverLoadingModeLUNARG {
     #[inline]
@@ -1207,7 +1158,7 @@ impl DirectDriverLoadingModeLUNARG {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAntiLagModeAMD.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAntiLagModeAMD.html>"]
 pub struct AntiLagModeAMD(pub(crate) i32);
 impl AntiLagModeAMD {
     #[inline]
@@ -1226,7 +1177,7 @@ impl AntiLagModeAMD {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAntiLagStageAMD.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAntiLagStageAMD.html>"]
 pub struct AntiLagStageAMD(pub(crate) i32);
 impl AntiLagStageAMD {
     #[inline]
@@ -1244,7 +1195,7 @@ impl AntiLagStageAMD {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSemaphoreType.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSemaphoreType.html>"]
 pub struct SemaphoreType(pub(crate) i32);
 impl SemaphoreType {
     #[inline]
@@ -1262,7 +1213,7 @@ impl SemaphoreType {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPresentModeKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPresentModeKHR.html>"]
 pub struct PresentModeKHR(pub(crate) i32);
 impl PresentModeKHR {
     #[inline]
@@ -1282,7 +1233,7 @@ impl PresentModeKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkColorSpaceKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkColorSpaceKHR.html>"]
 pub struct ColorSpaceKHR(pub(crate) i32);
 impl ColorSpaceKHR {
     #[inline]
@@ -1299,7 +1250,7 @@ impl ColorSpaceKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplaySurfaceStereoTypeNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplaySurfaceStereoTypeNV.html>"]
 pub struct DisplaySurfaceStereoTypeNV(pub(crate) i32);
 impl DisplaySurfaceStereoTypeNV {
     #[inline]
@@ -1319,7 +1270,7 @@ impl DisplaySurfaceStereoTypeNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkTimeDomainKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkTimeDomainKHR.html>"]
 pub struct TimeDomainKHR(pub(crate) i32);
 impl TimeDomainKHR {
     #[inline]
@@ -1339,7 +1290,7 @@ impl TimeDomainKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDebugReportObjectTypeEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDebugReportObjectTypeEXT.html>"]
 pub struct DebugReportObjectTypeEXT(pub(crate) i32);
 impl DebugReportObjectTypeEXT {
     #[inline]
@@ -1387,7 +1338,7 @@ impl DebugReportObjectTypeEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceMemoryReportEventTypeEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceMemoryReportEventTypeEXT.html>"]
 pub struct DeviceMemoryReportEventTypeEXT(pub(crate) i32);
 impl DeviceMemoryReportEventTypeEXT {
     #[inline]
@@ -1408,7 +1359,7 @@ impl DeviceMemoryReportEventTypeEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRasterizationOrderAMD.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRasterizationOrderAMD.html>"]
 pub struct RasterizationOrderAMD(pub(crate) i32);
 impl RasterizationOrderAMD {
     #[inline]
@@ -1426,7 +1377,7 @@ impl RasterizationOrderAMD {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkClusterAccelerationStructureTypeNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkClusterAccelerationStructureTypeNV.html>"]
 pub struct ClusterAccelerationStructureTypeNV(pub(crate) i32);
 impl ClusterAccelerationStructureTypeNV {
     #[inline]
@@ -1445,7 +1396,7 @@ impl ClusterAccelerationStructureTypeNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkClusterAccelerationStructureOpTypeNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkClusterAccelerationStructureOpTypeNV.html>"]
 pub struct ClusterAccelerationStructureOpTypeNV(pub(crate) i32);
 impl ClusterAccelerationStructureOpTypeNV {
     #[inline]
@@ -1467,7 +1418,7 @@ impl ClusterAccelerationStructureOpTypeNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkClusterAccelerationStructureOpModeNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkClusterAccelerationStructureOpModeNV.html>"]
 pub struct ClusterAccelerationStructureOpModeNV(pub(crate) i32);
 impl ClusterAccelerationStructureOpModeNV {
     #[inline]
@@ -1486,7 +1437,7 @@ impl ClusterAccelerationStructureOpModeNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationCheckEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationCheckEXT.html>"]
 pub struct ValidationCheckEXT(pub(crate) i32);
 impl ValidationCheckEXT {
     #[inline]
@@ -1504,7 +1455,7 @@ impl ValidationCheckEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationFeatureEnableEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationFeatureEnableEXT.html>"]
 pub struct ValidationFeatureEnableEXT(pub(crate) i32);
 impl ValidationFeatureEnableEXT {
     #[inline]
@@ -1525,7 +1476,7 @@ impl ValidationFeatureEnableEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationFeatureDisableEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationFeatureDisableEXT.html>"]
 pub struct ValidationFeatureDisableEXT(pub(crate) i32);
 impl ValidationFeatureDisableEXT {
     #[inline]
@@ -1549,7 +1500,7 @@ impl ValidationFeatureDisableEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerSettingTypeEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayerSettingTypeEXT.html>"]
 pub struct LayerSettingTypeEXT(pub(crate) i32);
 impl LayerSettingTypeEXT {
     #[inline]
@@ -1573,7 +1524,7 @@ impl LayerSettingTypeEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkIndirectCommandsTokenTypeNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkIndirectCommandsTokenTypeNV.html>"]
 pub struct IndirectCommandsTokenTypeNV(pub(crate) i32);
 impl IndirectCommandsTokenTypeNV {
     #[inline]
@@ -1597,7 +1548,7 @@ impl IndirectCommandsTokenTypeNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplayPowerStateEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplayPowerStateEXT.html>"]
 pub struct DisplayPowerStateEXT(pub(crate) i32);
 impl DisplayPowerStateEXT {
     #[inline]
@@ -1616,7 +1567,7 @@ impl DisplayPowerStateEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceEventTypeEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceEventTypeEXT.html>"]
 pub struct DeviceEventTypeEXT(pub(crate) i32);
 impl DeviceEventTypeEXT {
     #[inline]
@@ -1633,7 +1584,7 @@ impl DeviceEventTypeEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplayEventTypeEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplayEventTypeEXT.html>"]
 pub struct DisplayEventTypeEXT(pub(crate) i32);
 impl DisplayEventTypeEXT {
     #[inline]
@@ -1650,7 +1601,7 @@ impl DisplayEventTypeEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkViewportCoordinateSwizzleNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkViewportCoordinateSwizzleNV.html>"]
 pub struct ViewportCoordinateSwizzleNV(pub(crate) i32);
 impl ViewportCoordinateSwizzleNV {
     #[inline]
@@ -1674,7 +1625,7 @@ impl ViewportCoordinateSwizzleNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDiscardRectangleModeEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDiscardRectangleModeEXT.html>"]
 pub struct DiscardRectangleModeEXT(pub(crate) i32);
 impl DiscardRectangleModeEXT {
     #[inline]
@@ -1692,7 +1643,7 @@ impl DiscardRectangleModeEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPointClippingBehavior.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPointClippingBehavior.html>"]
 pub struct PointClippingBehavior(pub(crate) i32);
 impl PointClippingBehavior {
     #[inline]
@@ -1710,7 +1661,7 @@ impl PointClippingBehavior {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerReductionMode.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerReductionMode.html>"]
 pub struct SamplerReductionMode(pub(crate) i32);
 impl SamplerReductionMode {
     #[inline]
@@ -1729,7 +1680,7 @@ impl SamplerReductionMode {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkTessellationDomainOrigin.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkTessellationDomainOrigin.html>"]
 pub struct TessellationDomainOrigin(pub(crate) i32);
 impl TessellationDomainOrigin {
     #[inline]
@@ -1747,7 +1698,7 @@ impl TessellationDomainOrigin {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerYcbcrModelConversion.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerYcbcrModelConversion.html>"]
 pub struct SamplerYcbcrModelConversion(pub(crate) i32);
 impl SamplerYcbcrModelConversion {
     #[inline]
@@ -1761,18 +1712,18 @@ impl SamplerYcbcrModelConversion {
 }
 impl SamplerYcbcrModelConversion {
     pub const RGB_IDENTITY: Self = Self(0);
-    ///just range expansion
+    #[doc = "just range expansion"]
     pub const YCBCR_IDENTITY: Self = Self(1);
-    ///aka HD YUV
+    #[doc = "aka HD YUV"]
     pub const YCBCR_709: Self = Self(2);
-    ///aka SD YUV
+    #[doc = "aka SD YUV"]
     pub const YCBCR_601: Self = Self(3);
-    ///aka UHD YUV
+    #[doc = "aka UHD YUV"]
     pub const YCBCR_2020: Self = Self(4);
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerYcbcrRange.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSamplerYcbcrRange.html>"]
 pub struct SamplerYcbcrRange(pub(crate) i32);
 impl SamplerYcbcrRange {
     #[inline]
@@ -1785,14 +1736,14 @@ impl SamplerYcbcrRange {
     }
 }
 impl SamplerYcbcrRange {
-    ///Luma 0..1 maps to 0..255, chroma -0.5..0.5 to 1..255 (clamped)
+    #[doc = "Luma 0..1 maps to 0..255, chroma -0.5..0.5 to 1..255 (clamped)"]
     pub const ITU_FULL: Self = Self(0);
-    ///Luma 0..1 maps to 16..235, chroma -0.5..0.5 to 16..240
+    #[doc = "Luma 0..1 maps to 16..235, chroma -0.5..0.5 to 16..240"]
     pub const ITU_NARROW: Self = Self(1);
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkChromaLocation.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkChromaLocation.html>"]
 pub struct ChromaLocation(pub(crate) i32);
 impl ChromaLocation {
     #[inline]
@@ -1810,7 +1761,7 @@ impl ChromaLocation {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBlendOverlapEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBlendOverlapEXT.html>"]
 pub struct BlendOverlapEXT(pub(crate) i32);
 impl BlendOverlapEXT {
     #[inline]
@@ -1829,7 +1780,7 @@ impl BlendOverlapEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCoverageModulationModeNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCoverageModulationModeNV.html>"]
 pub struct CoverageModulationModeNV(pub(crate) i32);
 impl CoverageModulationModeNV {
     #[inline]
@@ -1849,7 +1800,7 @@ impl CoverageModulationModeNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCoverageReductionModeNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCoverageReductionModeNV.html>"]
 pub struct CoverageReductionModeNV(pub(crate) i32);
 impl CoverageReductionModeNV {
     #[inline]
@@ -1867,7 +1818,7 @@ impl CoverageReductionModeNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationCacheHeaderVersionEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkValidationCacheHeaderVersionEXT.html>"]
 pub struct ValidationCacheHeaderVersionEXT(pub(crate) i32);
 impl ValidationCacheHeaderVersionEXT {
     #[inline]
@@ -1884,7 +1835,7 @@ impl ValidationCacheHeaderVersionEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderInfoTypeAMD.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderInfoTypeAMD.html>"]
 pub struct ShaderInfoTypeAMD(pub(crate) i32);
 impl ShaderInfoTypeAMD {
     #[inline]
@@ -1903,7 +1854,7 @@ impl ShaderInfoTypeAMD {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueueGlobalPriority.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueueGlobalPriority.html>"]
 pub struct QueueGlobalPriority(pub(crate) i32);
 impl QueueGlobalPriority {
     #[inline]
@@ -1923,7 +1874,7 @@ impl QueueGlobalPriority {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkConservativeRasterizationModeEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkConservativeRasterizationModeEXT.html>"]
 pub struct ConservativeRasterizationModeEXT(pub(crate) i32);
 impl ConservativeRasterizationModeEXT {
     #[inline]
@@ -1942,7 +1893,7 @@ impl ConservativeRasterizationModeEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVendorId.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVendorId.html>"]
 pub struct VendorId(pub(crate) i32);
 impl VendorId {
     #[inline]
@@ -1955,26 +1906,26 @@ impl VendorId {
     }
 }
 impl VendorId {
-    ///Khronos vendor ID
+    #[doc = "Khronos vendor ID"]
     pub const KHRONOS: Self = Self(0x1_0000);
-    ///Vivante vendor ID
+    #[doc = "Vivante vendor ID"]
     pub const VIV: Self = Self(0x1_0001);
-    ///VeriSilicon vendor ID
+    #[doc = "VeriSilicon vendor ID"]
     pub const VSI: Self = Self(0x1_0002);
-    ///Kazan Software Renderer
+    #[doc = "Kazan Software Renderer"]
     pub const KAZAN: Self = Self(0x1_0003);
-    ///Codeplay Software Ltd. vendor ID
+    #[doc = "Codeplay Software Ltd. vendor ID"]
     pub const CODEPLAY: Self = Self(0x1_0004);
-    ///Mesa vendor ID
+    #[doc = "Mesa vendor ID"]
     pub const MESA: Self = Self(0x1_0005);
-    ///PoCL vendor ID
+    #[doc = "PoCL vendor ID"]
     pub const POCL: Self = Self(0x1_0006);
-    ///Mobileye vendor ID
+    #[doc = "Mobileye vendor ID"]
     pub const MOBILEYE: Self = Self(0x1_0007);
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDriverId.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDriverId.html>"]
 pub struct DriverId(pub(crate) i32);
 impl DriverId {
     #[inline]
@@ -1987,66 +1938,66 @@ impl DriverId {
     }
 }
 impl DriverId {
-    ///Advanced Micro Devices, Inc.
+    #[doc = "Advanced Micro Devices, Inc."]
     pub const AMD_PROPRIETARY: Self = Self(1);
-    ///Advanced Micro Devices, Inc.
+    #[doc = "Advanced Micro Devices, Inc."]
     pub const AMD_OPEN_SOURCE: Self = Self(2);
-    ///Mesa open source project
+    #[doc = "Mesa open source project"]
     pub const MESA_RADV: Self = Self(3);
-    ///NVIDIA Corporation
+    #[doc = "NVIDIA Corporation"]
     pub const NVIDIA_PROPRIETARY: Self = Self(4);
-    ///Intel Corporation
+    #[doc = "Intel Corporation"]
     pub const INTEL_PROPRIETARY_WINDOWS: Self = Self(5);
-    ///Intel Corporation
+    #[doc = "Intel Corporation"]
     pub const INTEL_OPEN_SOURCE_MESA: Self = Self(6);
-    ///Imagination Technologies
+    #[doc = "Imagination Technologies"]
     pub const IMAGINATION_PROPRIETARY: Self = Self(7);
-    ///Qualcomm Technologies, Inc.
+    #[doc = "Qualcomm Technologies, Inc."]
     pub const QUALCOMM_PROPRIETARY: Self = Self(8);
-    ///Arm Limited
+    #[doc = "Arm Limited"]
     pub const ARM_PROPRIETARY: Self = Self(9);
-    ///Google LLC
+    #[doc = "Google LLC"]
     pub const GOOGLE_SWIFTSHADER: Self = Self(10);
-    ///Google LLC
+    #[doc = "Google LLC"]
     pub const GGP_PROPRIETARY: Self = Self(11);
-    ///Broadcom Inc.
+    #[doc = "Broadcom Inc."]
     pub const BROADCOM_PROPRIETARY: Self = Self(12);
-    ///Mesa
+    #[doc = "Mesa"]
     pub const MESA_LLVMPIPE: Self = Self(13);
-    ///MoltenVK
+    #[doc = "MoltenVK"]
     pub const MOLTENVK: Self = Self(14);
-    ///Core Avionics & Industrial Inc.
+    #[doc = "Core Avionics & Industrial Inc."]
     pub const COREAVI_PROPRIETARY: Self = Self(15);
-    ///Juice Technologies, Inc.
+    #[doc = "Juice Technologies, Inc."]
     pub const JUICE_PROPRIETARY: Self = Self(16);
-    ///Verisilicon, Inc.
+    #[doc = "Verisilicon, Inc."]
     pub const VERISILICON_PROPRIETARY: Self = Self(17);
-    ///Mesa open source project
+    #[doc = "Mesa open source project"]
     pub const MESA_TURNIP: Self = Self(18);
-    ///Mesa open source project
+    #[doc = "Mesa open source project"]
     pub const MESA_V3DV: Self = Self(19);
-    ///Mesa open source project
+    #[doc = "Mesa open source project"]
     pub const MESA_PANVK: Self = Self(20);
-    ///Samsung Electronics Co., Ltd.
+    #[doc = "Samsung Electronics Co., Ltd."]
     pub const SAMSUNG_PROPRIETARY: Self = Self(21);
-    ///Mesa open source project
+    #[doc = "Mesa open source project"]
     pub const MESA_VENUS: Self = Self(22);
-    ///Mesa open source project
+    #[doc = "Mesa open source project"]
     pub const MESA_DOZEN: Self = Self(23);
-    ///Mesa open source project
+    #[doc = "Mesa open source project"]
     pub const MESA_NVK: Self = Self(24);
-    ///Imagination Technologies
+    #[doc = "Imagination Technologies"]
     pub const IMAGINATION_OPEN_SOURCE_MESA: Self = Self(25);
-    ///Mesa open source project
+    #[doc = "Mesa open source project"]
     pub const MESA_HONEYKRISP: Self = Self(26);
-    ///Vulkan SC Emulation on Vulkan
+    #[doc = "Vulkan SC Emulation on Vulkan"]
     pub const VULKAN_SC_EMULATION_ON_VULKAN: Self = Self(27);
-    ///Mesa open source project
+    #[doc = "Mesa open source project"]
     pub const MESA_KOSMICKRISP: Self = Self(28);
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShadingRatePaletteEntryNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShadingRatePaletteEntryNV.html>"]
 pub struct ShadingRatePaletteEntryNV(pub(crate) i32);
 impl ShadingRatePaletteEntryNV {
     #[inline]
@@ -2074,7 +2025,7 @@ impl ShadingRatePaletteEntryNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCoarseSampleOrderTypeNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCoarseSampleOrderTypeNV.html>"]
 pub struct CoarseSampleOrderTypeNV(pub(crate) i32);
 impl CoarseSampleOrderTypeNV {
     #[inline]
@@ -2094,7 +2045,7 @@ impl CoarseSampleOrderTypeNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyAccelerationStructureModeKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyAccelerationStructureModeKHR.html>"]
 pub struct CopyAccelerationStructureModeKHR(pub(crate) i32);
 impl CopyAccelerationStructureModeKHR {
     #[inline]
@@ -2112,7 +2063,7 @@ impl CopyAccelerationStructureModeKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBuildAccelerationStructureModeKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBuildAccelerationStructureModeKHR.html>"]
 pub struct BuildAccelerationStructureModeKHR(pub(crate) i32);
 impl BuildAccelerationStructureModeKHR {
     #[inline]
@@ -2130,7 +2081,7 @@ impl BuildAccelerationStructureModeKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureTypeKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureTypeKHR.html>"]
 pub struct AccelerationStructureTypeKHR(pub(crate) i32);
 impl AccelerationStructureTypeKHR {
     #[inline]
@@ -2149,7 +2100,7 @@ impl AccelerationStructureTypeKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryTypeKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkGeometryTypeKHR.html>"]
 pub struct GeometryTypeKHR(pub(crate) i32);
 impl GeometryTypeKHR {
     #[inline]
@@ -2168,7 +2119,7 @@ impl GeometryTypeKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureMemoryRequirementsTypeNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureMemoryRequirementsTypeNV.html>"]
 pub struct AccelerationStructureMemoryRequirementsTypeNV(pub(crate) i32);
 impl AccelerationStructureMemoryRequirementsTypeNV {
     #[inline]
@@ -2187,7 +2138,7 @@ impl AccelerationStructureMemoryRequirementsTypeNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureBuildTypeKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureBuildTypeKHR.html>"]
 pub struct AccelerationStructureBuildTypeKHR(pub(crate) i32);
 impl AccelerationStructureBuildTypeKHR {
     #[inline]
@@ -2206,7 +2157,7 @@ impl AccelerationStructureBuildTypeKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRayTracingShaderGroupTypeKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRayTracingShaderGroupTypeKHR.html>"]
 pub struct RayTracingShaderGroupTypeKHR(pub(crate) i32);
 impl RayTracingShaderGroupTypeKHR {
     #[inline]
@@ -2225,7 +2176,7 @@ impl RayTracingShaderGroupTypeKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureCompatibilityKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureCompatibilityKHR.html>"]
 pub struct AccelerationStructureCompatibilityKHR(pub(crate) i32);
 impl AccelerationStructureCompatibilityKHR {
     #[inline]
@@ -2243,7 +2194,7 @@ impl AccelerationStructureCompatibilityKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderGroupShaderKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderGroupShaderKHR.html>"]
 pub struct ShaderGroupShaderKHR(pub(crate) i32);
 impl ShaderGroupShaderKHR {
     #[inline]
@@ -2263,7 +2214,7 @@ impl ShaderGroupShaderKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryOverallocationBehaviorAMD.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMemoryOverallocationBehaviorAMD.html>"]
 pub struct MemoryOverallocationBehaviorAMD(pub(crate) i32);
 impl MemoryOverallocationBehaviorAMD {
     #[inline]
@@ -2282,7 +2233,7 @@ impl MemoryOverallocationBehaviorAMD {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFullScreenExclusiveEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFullScreenExclusiveEXT.html>"]
 pub struct FullScreenExclusiveEXT(pub(crate) i32);
 impl FullScreenExclusiveEXT {
     #[inline]
@@ -2302,7 +2253,7 @@ impl FullScreenExclusiveEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceCounterScopeKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceCounterScopeKHR.html>"]
 pub struct PerformanceCounterScopeKHR(pub(crate) i32);
 impl PerformanceCounterScopeKHR {
     #[inline]
@@ -2321,7 +2272,7 @@ impl PerformanceCounterScopeKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceCounterUnitKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceCounterUnitKHR.html>"]
 pub struct PerformanceCounterUnitKHR(pub(crate) i32);
 impl PerformanceCounterUnitKHR {
     #[inline]
@@ -2348,7 +2299,7 @@ impl PerformanceCounterUnitKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceCounterStorageKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceCounterStorageKHR.html>"]
 pub struct PerformanceCounterStorageKHR(pub(crate) i32);
 impl PerformanceCounterStorageKHR {
     #[inline]
@@ -2370,7 +2321,7 @@ impl PerformanceCounterStorageKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceConfigurationTypeINTEL.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceConfigurationTypeINTEL.html>"]
 pub struct PerformanceConfigurationTypeINTEL(pub(crate) i32);
 impl PerformanceConfigurationTypeINTEL {
     #[inline]
@@ -2387,7 +2338,7 @@ impl PerformanceConfigurationTypeINTEL {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryPoolSamplingModeINTEL.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryPoolSamplingModeINTEL.html>"]
 pub struct QueryPoolSamplingModeINTEL(pub(crate) i32);
 impl QueryPoolSamplingModeINTEL {
     #[inline]
@@ -2404,7 +2355,7 @@ impl QueryPoolSamplingModeINTEL {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceOverrideTypeINTEL.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceOverrideTypeINTEL.html>"]
 pub struct PerformanceOverrideTypeINTEL(pub(crate) i32);
 impl PerformanceOverrideTypeINTEL {
     #[inline]
@@ -2422,7 +2373,7 @@ impl PerformanceOverrideTypeINTEL {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceParameterTypeINTEL.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceParameterTypeINTEL.html>"]
 pub struct PerformanceParameterTypeINTEL(pub(crate) i32);
 impl PerformanceParameterTypeINTEL {
     #[inline]
@@ -2440,7 +2391,7 @@ impl PerformanceParameterTypeINTEL {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceValueTypeINTEL.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPerformanceValueTypeINTEL.html>"]
 pub struct PerformanceValueTypeINTEL(pub(crate) i32);
 impl PerformanceValueTypeINTEL {
     #[inline]
@@ -2461,7 +2412,7 @@ impl PerformanceValueTypeINTEL {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderFloatControlsIndependence.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderFloatControlsIndependence.html>"]
 pub struct ShaderFloatControlsIndependence(pub(crate) i32);
 impl ShaderFloatControlsIndependence {
     #[inline]
@@ -2480,7 +2431,7 @@ impl ShaderFloatControlsIndependence {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineExecutableStatisticFormatKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineExecutableStatisticFormatKHR.html>"]
 pub struct PipelineExecutableStatisticFormatKHR(pub(crate) i32);
 impl PipelineExecutableStatisticFormatKHR {
     #[inline]
@@ -2500,7 +2451,7 @@ impl PipelineExecutableStatisticFormatKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLineRasterizationMode.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLineRasterizationMode.html>"]
 pub struct LineRasterizationMode(pub(crate) i32);
 impl LineRasterizationMode {
     #[inline]
@@ -2520,7 +2471,7 @@ impl LineRasterizationMode {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFragmentShadingRateCombinerOpKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFragmentShadingRateCombinerOpKHR.html>"]
 pub struct FragmentShadingRateCombinerOpKHR(pub(crate) i32);
 impl FragmentShadingRateCombinerOpKHR {
     #[inline]
@@ -2541,7 +2492,7 @@ impl FragmentShadingRateCombinerOpKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFragmentShadingRateNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFragmentShadingRateNV.html>"]
 pub struct FragmentShadingRateNV(pub(crate) i32);
 impl FragmentShadingRateNV {
     #[inline]
@@ -2569,7 +2520,7 @@ impl FragmentShadingRateNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFragmentShadingRateTypeNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkFragmentShadingRateTypeNV.html>"]
 pub struct FragmentShadingRateTypeNV(pub(crate) i32);
 impl FragmentShadingRateTypeNV {
     #[inline]
@@ -2587,7 +2538,7 @@ impl FragmentShadingRateTypeNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubpassMergeStatusEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSubpassMergeStatusEXT.html>"]
 pub struct SubpassMergeStatusEXT(pub(crate) i32);
 impl SubpassMergeStatusEXT {
     #[inline]
@@ -2617,7 +2568,7 @@ impl SubpassMergeStatusEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkProvokingVertexModeEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkProvokingVertexModeEXT.html>"]
 pub struct ProvokingVertexModeEXT(pub(crate) i32);
 impl ProvokingVertexModeEXT {
     #[inline]
@@ -2635,7 +2586,7 @@ impl ProvokingVertexModeEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureMotionInstanceTypeNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkAccelerationStructureMotionInstanceTypeNV.html>"]
 pub struct AccelerationStructureMotionInstanceTypeNV(pub(crate) i32);
 impl AccelerationStructureMotionInstanceTypeNV {
     #[inline]
@@ -2654,7 +2605,7 @@ impl AccelerationStructureMotionInstanceTypeNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceAddressBindingTypeEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceAddressBindingTypeEXT.html>"]
 pub struct DeviceAddressBindingTypeEXT(pub(crate) i32);
 impl DeviceAddressBindingTypeEXT {
     #[inline]
@@ -2672,7 +2623,7 @@ impl DeviceAddressBindingTypeEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryResultStatusKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkQueryResultStatusKHR.html>"]
 pub struct QueryResultStatusKHR(pub(crate) i32);
 impl QueryResultStatusKHR {
     #[inline]
@@ -2691,7 +2642,7 @@ impl QueryResultStatusKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeTuningModeKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeTuningModeKHR.html>"]
 pub struct VideoEncodeTuningModeKHR(pub(crate) i32);
 impl VideoEncodeTuningModeKHR {
     #[inline]
@@ -2712,7 +2663,7 @@ impl VideoEncodeTuningModeKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPartitionedAccelerationStructureOpTypeNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPartitionedAccelerationStructureOpTypeNV.html>"]
 pub struct PartitionedAccelerationStructureOpTypeNV(pub(crate) i32);
 impl PartitionedAccelerationStructureOpTypeNV {
     #[inline]
@@ -2731,7 +2682,7 @@ impl PartitionedAccelerationStructureOpTypeNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeAV1PredictionModeKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeAV1PredictionModeKHR.html>"]
 pub struct VideoEncodeAV1PredictionModeKHR(pub(crate) i32);
 impl VideoEncodeAV1PredictionModeKHR {
     #[inline]
@@ -2751,7 +2702,7 @@ impl VideoEncodeAV1PredictionModeKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeAV1RateControlGroupKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkVideoEncodeAV1RateControlGroupKHR.html>"]
 pub struct VideoEncodeAV1RateControlGroupKHR(pub(crate) i32);
 impl VideoEncodeAV1RateControlGroupKHR {
     #[inline]
@@ -2770,7 +2721,7 @@ impl VideoEncodeAV1RateControlGroupKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineRobustnessBufferBehavior.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineRobustnessBufferBehavior.html>"]
 pub struct PipelineRobustnessBufferBehavior(pub(crate) i32);
 impl PipelineRobustnessBufferBehavior {
     #[inline]
@@ -2790,7 +2741,7 @@ impl PipelineRobustnessBufferBehavior {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineRobustnessImageBehavior.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPipelineRobustnessImageBehavior.html>"]
 pub struct PipelineRobustnessImageBehavior(pub(crate) i32);
 impl PipelineRobustnessImageBehavior {
     #[inline]
@@ -2810,7 +2761,7 @@ impl PipelineRobustnessImageBehavior {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpticalFlowPerformanceLevelNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpticalFlowPerformanceLevelNV.html>"]
 pub struct OpticalFlowPerformanceLevelNV(pub(crate) i32);
 impl OpticalFlowPerformanceLevelNV {
     #[inline]
@@ -2830,7 +2781,7 @@ impl OpticalFlowPerformanceLevelNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpticalFlowSessionBindingPointNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpticalFlowSessionBindingPointNV.html>"]
 pub struct OpticalFlowSessionBindingPointNV(pub(crate) i32);
 impl OpticalFlowSessionBindingPointNV {
     #[inline]
@@ -2855,7 +2806,7 @@ impl OpticalFlowSessionBindingPointNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMicromapTypeEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkMicromapTypeEXT.html>"]
 pub struct MicromapTypeEXT(pub(crate) i32);
 impl MicromapTypeEXT {
     #[inline]
@@ -2872,7 +2823,7 @@ impl MicromapTypeEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyMicromapModeEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCopyMicromapModeEXT.html>"]
 pub struct CopyMicromapModeEXT(pub(crate) i32);
 impl CopyMicromapModeEXT {
     #[inline]
@@ -2892,7 +2843,7 @@ impl CopyMicromapModeEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBuildMicromapModeEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBuildMicromapModeEXT.html>"]
 pub struct BuildMicromapModeEXT(pub(crate) i32);
 impl BuildMicromapModeEXT {
     #[inline]
@@ -2909,7 +2860,7 @@ impl BuildMicromapModeEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpacityMicromapFormatEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpacityMicromapFormatEXT.html>"]
 pub struct OpacityMicromapFormatEXT(pub(crate) i32);
 impl OpacityMicromapFormatEXT {
     #[inline]
@@ -2927,7 +2878,7 @@ impl OpacityMicromapFormatEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpacityMicromapSpecialIndexEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOpacityMicromapSpecialIndexEXT.html>"]
 pub struct OpacityMicromapSpecialIndexEXT(pub(crate) i32);
 impl OpacityMicromapSpecialIndexEXT {
     #[inline]
@@ -2947,7 +2898,7 @@ impl OpacityMicromapSpecialIndexEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDepthBiasRepresentationEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDepthBiasRepresentationEXT.html>"]
 pub struct DepthBiasRepresentationEXT(pub(crate) i32);
 impl DepthBiasRepresentationEXT {
     #[inline]
@@ -2966,7 +2917,7 @@ impl DepthBiasRepresentationEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceFaultAddressTypeEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceFaultAddressTypeEXT.html>"]
 pub struct DeviceFaultAddressTypeEXT(pub(crate) i32);
 impl DeviceFaultAddressTypeEXT {
     #[inline]
@@ -2979,7 +2930,7 @@ impl DeviceFaultAddressTypeEXT {
     }
 }
 impl DeviceFaultAddressTypeEXT {
-    ///Currently unused
+    #[doc = "Currently unused"]
     pub const NONE: Self = Self(0);
     pub const READ_INVALID: Self = Self(1);
     pub const WRITE_INVALID: Self = Self(2);
@@ -2990,7 +2941,7 @@ impl DeviceFaultAddressTypeEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceFaultVendorBinaryHeaderVersionEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDeviceFaultVendorBinaryHeaderVersionEXT.html>"]
 pub struct DeviceFaultVendorBinaryHeaderVersionEXT(pub(crate) i32);
 impl DeviceFaultVendorBinaryHeaderVersionEXT {
     #[inline]
@@ -3007,7 +2958,7 @@ impl DeviceFaultVendorBinaryHeaderVersionEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkIndirectExecutionSetInfoTypeEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkIndirectExecutionSetInfoTypeEXT.html>"]
 pub struct IndirectExecutionSetInfoTypeEXT(pub(crate) i32);
 impl IndirectExecutionSetInfoTypeEXT {
     #[inline]
@@ -3025,7 +2976,7 @@ impl IndirectExecutionSetInfoTypeEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkIndirectCommandsTokenTypeEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkIndirectCommandsTokenTypeEXT.html>"]
 pub struct IndirectCommandsTokenTypeEXT(pub(crate) i32);
 impl IndirectCommandsTokenTypeEXT {
     #[inline]
@@ -3051,7 +3002,7 @@ impl IndirectCommandsTokenTypeEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplacementMicromapFormatNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDisplacementMicromapFormatNV.html>"]
 pub struct DisplacementMicromapFormatNV(pub(crate) i32);
 impl DisplacementMicromapFormatNV {
     #[inline]
@@ -3070,7 +3021,7 @@ impl DisplacementMicromapFormatNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderCodeTypeEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkShaderCodeTypeEXT.html>"]
 pub struct ShaderCodeTypeEXT(pub(crate) i32);
 impl ShaderCodeTypeEXT {
     #[inline]
@@ -3088,7 +3039,7 @@ impl ShaderCodeTypeEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkScopeKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkScopeKHR.html>"]
 pub struct ScopeKHR(pub(crate) i32);
 impl ScopeKHR {
     #[inline]
@@ -3108,7 +3059,7 @@ impl ScopeKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkComponentTypeKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkComponentTypeKHR.html>"]
 pub struct ComponentTypeKHR(pub(crate) i32);
 impl ComponentTypeKHR {
     #[inline]
@@ -3135,7 +3086,7 @@ impl ComponentTypeKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCubicFilterWeightsQCOM.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCubicFilterWeightsQCOM.html>"]
 pub struct CubicFilterWeightsQCOM(pub(crate) i32);
 impl CubicFilterWeightsQCOM {
     #[inline]
@@ -3155,7 +3106,7 @@ impl CubicFilterWeightsQCOM {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBlockMatchWindowCompareModeQCOM.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkBlockMatchWindowCompareModeQCOM.html>"]
 pub struct BlockMatchWindowCompareModeQCOM(pub(crate) i32);
 impl BlockMatchWindowCompareModeQCOM {
     #[inline]
@@ -3173,7 +3124,7 @@ impl BlockMatchWindowCompareModeQCOM {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceLayeredApiKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceLayeredApiKHR.html>"]
 pub struct PhysicalDeviceLayeredApiKHR(pub(crate) i32);
 impl PhysicalDeviceLayeredApiKHR {
     #[inline]
@@ -3194,7 +3145,7 @@ impl PhysicalDeviceLayeredApiKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayeredDriverUnderlyingApiMSFT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLayeredDriverUnderlyingApiMSFT.html>"]
 pub struct LayeredDriverUnderlyingApiMSFT(pub(crate) i32);
 impl LayeredDriverUnderlyingApiMSFT {
     #[inline]
@@ -3212,7 +3163,7 @@ impl LayeredDriverUnderlyingApiMSFT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLatencyMarkerNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkLatencyMarkerNV.html>"]
 pub struct LatencyMarkerNV(pub(crate) i32);
 impl LatencyMarkerNV {
     #[inline]
@@ -3240,7 +3191,7 @@ impl LatencyMarkerNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOutOfBandQueueTypeNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkOutOfBandQueueTypeNV.html>"]
 pub struct OutOfBandQueueTypeNV(pub(crate) i32);
 impl OutOfBandQueueTypeNV {
     #[inline]
@@ -3258,7 +3209,7 @@ impl OutOfBandQueueTypeNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCompressedTriangleFormatAMDX.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCompressedTriangleFormatAMDX.html>"]
 pub struct CompressedTriangleFormatAMDX(pub(crate) i32);
 impl CompressedTriangleFormatAMDX {
     #[inline]
@@ -3275,7 +3226,7 @@ impl CompressedTriangleFormatAMDX {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDepthClampModeEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDepthClampModeEXT.html>"]
 pub struct DepthClampModeEXT(pub(crate) i32);
 impl DepthClampModeEXT {
     #[inline]
@@ -3293,7 +3244,7 @@ impl DepthClampModeEXT {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeVectorMatrixLayoutNV.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCooperativeVectorMatrixLayoutNV.html>"]
 pub struct CooperativeVectorMatrixLayoutNV(pub(crate) i32);
 impl CooperativeVectorMatrixLayoutNV {
     #[inline]
@@ -3313,7 +3264,7 @@ impl CooperativeVectorMatrixLayoutNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkTensorTilingARM.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkTensorTilingARM.html>"]
 pub struct TensorTilingARM(pub(crate) i32);
 impl TensorTilingARM {
     #[inline]
@@ -3331,7 +3282,7 @@ impl TensorTilingARM {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDefaultVertexAttributeValueKHR.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDefaultVertexAttributeValueKHR.html>"]
 pub struct DefaultVertexAttributeValueKHR(pub(crate) i32);
 impl DefaultVertexAttributeValueKHR {
     #[inline]
@@ -3349,7 +3300,7 @@ impl DefaultVertexAttributeValueKHR {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDataGraphPipelineSessionBindPointARM.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDataGraphPipelineSessionBindPointARM.html>"]
 pub struct DataGraphPipelineSessionBindPointARM(pub(crate) i32);
 impl DataGraphPipelineSessionBindPointARM {
     #[inline]
@@ -3366,7 +3317,7 @@ impl DataGraphPipelineSessionBindPointARM {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDataGraphPipelineSessionBindPointTypeARM.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDataGraphPipelineSessionBindPointTypeARM.html>"]
 pub struct DataGraphPipelineSessionBindPointTypeARM(pub(crate) i32);
 impl DataGraphPipelineSessionBindPointTypeARM {
     #[inline]
@@ -3383,7 +3334,7 @@ impl DataGraphPipelineSessionBindPointTypeARM {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDataGraphPipelinePropertyARM.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDataGraphPipelinePropertyARM.html>"]
 pub struct DataGraphPipelinePropertyARM(pub(crate) i32);
 impl DataGraphPipelinePropertyARM {
     #[inline]
@@ -3401,7 +3352,7 @@ impl DataGraphPipelinePropertyARM {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceDataGraphProcessingEngineTypeARM.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceDataGraphProcessingEngineTypeARM.html>"]
 pub struct PhysicalDeviceDataGraphProcessingEngineTypeARM(pub(crate) i32);
 impl PhysicalDeviceDataGraphProcessingEngineTypeARM {
     #[inline]
@@ -3418,7 +3369,7 @@ impl PhysicalDeviceDataGraphProcessingEngineTypeARM {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceDataGraphOperationTypeARM.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkPhysicalDeviceDataGraphOperationTypeARM.html>"]
 pub struct PhysicalDeviceDataGraphOperationTypeARM(pub(crate) i32);
 impl PhysicalDeviceDataGraphOperationTypeARM {
     #[inline]
@@ -3435,7 +3386,7 @@ impl PhysicalDeviceDataGraphOperationTypeARM {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDataGraphModelCacheTypeQCOM.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDataGraphModelCacheTypeQCOM.html>"]
 pub struct DataGraphModelCacheTypeQCOM(pub(crate) i32);
 impl DataGraphModelCacheTypeQCOM {
     #[inline]
@@ -3452,7 +3403,7 @@ impl DataGraphModelCacheTypeQCOM {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorMappingSourceEXT.html>
+#[doc = "<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorMappingSourceEXT.html>"]
 pub struct DescriptorMappingSourceEXT(pub(crate) i32);
 impl DescriptorMappingSourceEXT {
     #[inline]
@@ -3516,9 +3467,7 @@ impl fmt::Debug for ObjectType {
             Self::ACCELERATION_STRUCTURE_KHR => Some("ACCELERATION_STRUCTURE_KHR"),
             Self::VALIDATION_CACHE_EXT => Some("VALIDATION_CACHE_EXT"),
             Self::ACCELERATION_STRUCTURE_NV => Some("ACCELERATION_STRUCTURE_NV"),
-            Self::PERFORMANCE_CONFIGURATION_INTEL => {
-                Some("PERFORMANCE_CONFIGURATION_INTEL")
-            }
+            Self::PERFORMANCE_CONFIGURATION_INTEL => Some("PERFORMANCE_CONFIGURATION_INTEL"),
             Self::DEFERRED_OPERATION_KHR => Some("DEFERRED_OPERATION_KHR"),
             Self::INDIRECT_COMMANDS_LAYOUT_NV => Some("INDIRECT_COMMANDS_LAYOUT_NV"),
             Self::CUDA_MODULE_NV => Some("CUDA_MODULE_NV"),
@@ -3530,9 +3479,7 @@ impl fmt::Debug for ObjectType {
             Self::OPTICAL_FLOW_SESSION_NV => Some("OPTICAL_FLOW_SESSION_NV"),
             Self::SHADER_EXT => Some("SHADER_EXT"),
             Self::PIPELINE_BINARY_KHR => Some("PIPELINE_BINARY_KHR"),
-            Self::DATA_GRAPH_PIPELINE_SESSION_ARM => {
-                Some("DATA_GRAPH_PIPELINE_SESSION_ARM")
-            }
+            Self::DATA_GRAPH_PIPELINE_SESSION_ARM => Some("DATA_GRAPH_PIPELINE_SESSION_ARM"),
             Self::EXTERNAL_COMPUTE_QUEUE_NV => Some("EXTERNAL_COMPUTE_QUEUE_NV"),
             Self::INDIRECT_COMMANDS_LAYOUT_EXT => Some("INDIRECT_COMMANDS_LAYOUT_EXT"),
             Self::INDIRECT_EXECUTION_SET_EXT => Some("INDIRECT_EXECUTION_SET_EXT"),
@@ -3541,7 +3488,11 @@ impl fmt::Debug for ObjectType {
             Self::PRIVATE_DATA_SLOT => Some("PRIVATE_DATA_SLOT"),
             _ => None,
         };
-        if let Some(x) = name { f.write_str(x) } else { self.0.fmt(f) }
+        if let Some(x) = name {
+            f.write_str(x)
+        } else {
+            self.0.fmt(f)
+        }
     }
 }
 impl fmt::Debug for Result {
@@ -3567,14 +3518,10 @@ impl fmt::Debug for Result {
             Self::ERROR_FRAGMENTED_POOL => Some("ERROR_FRAGMENTED_POOL"),
             Self::ERROR_UNKNOWN => Some("ERROR_UNKNOWN"),
             Self::ERROR_SURFACE_LOST_KHR => Some("ERROR_SURFACE_LOST_KHR"),
-            Self::ERROR_NATIVE_WINDOW_IN_USE_KHR => {
-                Some("ERROR_NATIVE_WINDOW_IN_USE_KHR")
-            }
+            Self::ERROR_NATIVE_WINDOW_IN_USE_KHR => Some("ERROR_NATIVE_WINDOW_IN_USE_KHR"),
             Self::SUBOPTIMAL_KHR => Some("SUBOPTIMAL_KHR"),
             Self::ERROR_OUT_OF_DATE_KHR => Some("ERROR_OUT_OF_DATE_KHR"),
-            Self::ERROR_INCOMPATIBLE_DISPLAY_KHR => {
-                Some("ERROR_INCOMPATIBLE_DISPLAY_KHR")
-            }
+            Self::ERROR_INCOMPATIBLE_DISPLAY_KHR => Some("ERROR_INCOMPATIBLE_DISPLAY_KHR"),
             Self::ERROR_INVALID_SHADER_NV => Some("ERROR_INVALID_SHADER_NV"),
             Self::ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR => {
                 Some("ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR")
@@ -3610,12 +3557,8 @@ impl fmt::Debug for Result {
             Self::ERROR_INVALID_VIDEO_STD_PARAMETERS_KHR => {
                 Some("ERROR_INVALID_VIDEO_STD_PARAMETERS_KHR")
             }
-            Self::ERROR_COMPRESSION_EXHAUSTED_EXT => {
-                Some("ERROR_COMPRESSION_EXHAUSTED_EXT")
-            }
-            Self::INCOMPATIBLE_SHADER_BINARY_EXT => {
-                Some("INCOMPATIBLE_SHADER_BINARY_EXT")
-            }
+            Self::ERROR_COMPRESSION_EXHAUSTED_EXT => Some("ERROR_COMPRESSION_EXHAUSTED_EXT"),
+            Self::INCOMPATIBLE_SHADER_BINARY_EXT => Some("INCOMPATIBLE_SHADER_BINARY_EXT"),
             Self::PIPELINE_BINARY_MISSING_KHR => Some("PIPELINE_BINARY_MISSING_KHR"),
             Self::ERROR_NOT_ENOUGH_SPACE_KHR => Some("ERROR_NOT_ENOUGH_SPACE_KHR"),
             Self::ERROR_VALIDATION_FAILED => Some("ERROR_VALIDATION_FAILED"),
@@ -3629,6 +3572,10 @@ impl fmt::Debug for Result {
             Self::ERROR_NOT_PERMITTED => Some("ERROR_NOT_PERMITTED"),
             _ => None,
         };
-        if let Some(x) = name { f.write_str(x) } else { self.0.fmt(f) }
+        if let Some(x) = name {
+            f.write_str(x)
+        } else {
+            self.0.fmt(f)
+        }
     }
 }

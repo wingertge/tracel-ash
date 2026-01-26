@@ -32,6 +32,7 @@ use std::{
     fs,
     ops::Not,
     path::Path,
+    process,
 };
 use syn::Ident;
 
@@ -3536,10 +3537,17 @@ pub fn write_source_code<P: AsRef<Path>>(vk_headers_dir: &Path, src_dir: P) {
     };
 
     fn write_formatted(code: impl ToString, out: impl AsRef<Path>) {
-        let text = code.to_string();
-        let syntax_tree = syn::parse_file(&text).unwrap();
-        let formatted = prettyplease::unparse(&syntax_tree);
-        fs::write(out, formatted).unwrap();
+        let path = out.as_ref();
+        fs::write(path, code.to_string()).unwrap();
+        match process::Command::new("rustfmt").arg(path).status() {
+            Ok(status) if !status.success() => {
+                println!("cargo:warning=failed to rustfmt {:?}", path);
+            }
+            Ok(_) => {}
+            Err(_) => {
+                println!("cargo:warning=failed to execute rustfmt");
+            }
+        };
     }
 
     write_formatted(feature_code, vk_features_file);
