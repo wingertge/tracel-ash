@@ -12,6 +12,7 @@ pub type SemaphoreWaitFlagsKHR = SemaphoreWaitFlags;
 pub type AccessFlags2KHR = AccessFlags2;
 pub type PipelineStageFlags2KHR = PipelineStageFlags2;
 pub type FormatFeatureFlags2KHR = FormatFeatureFlags2;
+pub type MemoryDecompressionMethodFlagsNV = MemoryDecompressionMethodFlagsEXT;
 pub type RenderingFlagsKHR = RenderingFlags;
 pub type PipelineCreateFlags2KHR = PipelineCreateFlags2;
 pub type BufferUsageFlags2KHR = BufferUsageFlags2;
@@ -36,6 +37,7 @@ pub type PresentGravityFlagsEXT = PresentGravityFlagsKHR;
 pub type DescriptorUpdateTemplateKHR = DescriptorUpdateTemplate;
 pub type SamplerYcbcrConversionKHR = SamplerYcbcrConversion;
 pub type PrivateDataSlotEXT = PrivateDataSlot;
+pub type RayTracingInvocationReorderModeNV = RayTracingInvocationReorderModeEXT;
 pub type DescriptorUpdateTemplateTypeKHR = DescriptorUpdateTemplateType;
 pub type PointClippingBehaviorKHR = PointClippingBehavior;
 pub type QueueGlobalPriorityKHR = QueueGlobalPriority;
@@ -60,6 +62,8 @@ pub type SamplerReductionModeEXT = SamplerReductionMode;
 pub type ShaderFloatControlsIndependenceKHR = ShaderFloatControlsIndependence;
 pub type DriverIdKHR = DriverId;
 pub type BufferUsageFlags2CreateInfoKHR<'a> = BufferUsageFlags2CreateInfo<'a>;
+pub type CopyMemoryIndirectCommandNV = CopyMemoryIndirectCommandKHR;
+pub type CopyMemoryToImageIndirectCommandNV = CopyMemoryToImageIndirectCommandKHR;
 pub type PipelineCreateFlags2CreateInfoKHR<'a> = PipelineCreateFlags2CreateInfo<'a>;
 pub type DevicePrivateDataCreateInfoEXT<'a> = DevicePrivateDataCreateInfo<'a>;
 pub type PrivateDataSlotCreateInfoEXT<'a> = PrivateDataSlotCreateInfo<'a>;
@@ -314,6 +318,15 @@ pub type PhysicalDeviceComputeShaderDerivativesFeaturesNV<'a> = PhysicalDeviceCo
 pub type PhysicalDeviceFragmentShaderBarycentricFeaturesNV<'a> = PhysicalDeviceFragmentShaderBarycentricFeaturesKHR<
     'a,
 >;
+pub type PhysicalDeviceCopyMemoryIndirectPropertiesNV<'a> = PhysicalDeviceCopyMemoryIndirectPropertiesKHR<
+    'a,
+>;
+pub type PhysicalDeviceMemoryDecompressionFeaturesNV<'a> = PhysicalDeviceMemoryDecompressionFeaturesEXT<
+    'a,
+>;
+pub type PhysicalDeviceMemoryDecompressionPropertiesNV<'a> = PhysicalDeviceMemoryDecompressionPropertiesEXT<
+    'a,
+>;
 pub type ImageStencilUsageCreateInfoEXT<'a> = ImageStencilUsageCreateInfo<'a>;
 pub type PhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM<'a> = PhysicalDeviceFragmentDensityMapOffsetFeaturesEXT<
     'a,
@@ -489,6 +502,7 @@ pub type PhysicalDeviceShaderIntegerDotProductPropertiesKHR<'a> = PhysicalDevice
 pub type FormatProperties3KHR<'a> = FormatProperties3<'a>;
 pub type PipelineRenderingCreateInfoKHR<'a> = PipelineRenderingCreateInfo<'a>;
 pub type RenderingInfoKHR<'a> = RenderingInfo<'a>;
+pub type RenderingEndInfoEXT<'a> = RenderingEndInfoKHR<'a>;
 pub type RenderingAttachmentInfoKHR<'a> = RenderingAttachmentInfo<'a>;
 pub type PhysicalDeviceDynamicRenderingFeaturesKHR<'a> = PhysicalDeviceDynamicRenderingFeatures<
     'a,
@@ -558,4 +572,3 @@ pub type RenderingInputAttachmentIndexInfoKHR<'a> = RenderingInputAttachmentInde
 pub type PhysicalDevicePresentModeFifoLatestReadyFeaturesEXT<'a> = PhysicalDevicePresentModeFifoLatestReadyFeaturesKHR<
     'a,
 >;
-pub type SurfaceCreateInfoOHOS<'a> = OHSurfaceCreateInfoOHOS<'a>;

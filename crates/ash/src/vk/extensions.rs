@@ -102,7 +102,7 @@ impl ObjectType {
 }
 ///Generated from 'VK_EXT_debug_report'
 impl Result {
-    pub const ERROR_VALIDATION_FAILED_EXT: Self = Self(-1_000_011_001);
+    pub const ERROR_VALIDATION_FAILED_EXT: Self = Self::ERROR_VALIDATION_FAILED;
 }
 ///Generated from 'VK_EXT_debug_report'
 impl StructureType {
@@ -1699,8 +1699,8 @@ impl StructureType {
 }
 ///Generated from 'VK_QCOM_render_pass_shader_resolve'
 impl SubpassDescriptionFlags {
-    pub const FRAGMENT_REGION_QCOM: Self = Self(0b100);
-    pub const SHADER_RESOLVE_QCOM: Self = Self(0b1000);
+    pub const FRAGMENT_REGION_QCOM: Self = Self::FRAGMENT_REGION_EXT;
+    pub const SHADER_RESOLVE_QCOM: Self = Self::CUSTOM_RESOLVE_EXT;
 }
 ///Generated from 'VK_EXT_global_priority'
 impl QueueGlobalPriority {
@@ -1945,6 +1945,32 @@ impl StructureType {
     pub const TIMELINE_SEMAPHORE_SUBMIT_INFO_KHR: Self = Self::TIMELINE_SEMAPHORE_SUBMIT_INFO;
     pub const SEMAPHORE_WAIT_INFO_KHR: Self = Self::SEMAPHORE_WAIT_INFO;
     pub const SEMAPHORE_SIGNAL_INFO_KHR: Self = Self::SEMAPHORE_SIGNAL_INFO;
+}
+///Generated from 'VK_EXT_present_timing'
+impl Result {
+    pub const ERROR_PRESENT_TIMING_QUEUE_FULL_EXT: Self = Self(-1_000_208_000);
+}
+///Generated from 'VK_EXT_present_timing'
+impl StructureType {
+    pub const PHYSICAL_DEVICE_PRESENT_TIMING_FEATURES_EXT: Self = Self(1_000_208_000);
+    pub const SWAPCHAIN_TIMING_PROPERTIES_EXT: Self = Self(1_000_208_001);
+    pub const SWAPCHAIN_TIME_DOMAIN_PROPERTIES_EXT: Self = Self(1_000_208_002);
+    pub const PRESENT_TIMINGS_INFO_EXT: Self = Self(1_000_208_003);
+    pub const PRESENT_TIMING_INFO_EXT: Self = Self(1_000_208_004);
+    pub const PAST_PRESENTATION_TIMING_INFO_EXT: Self = Self(1_000_208_005);
+    pub const PAST_PRESENTATION_TIMING_PROPERTIES_EXT: Self = Self(1_000_208_006);
+    pub const PAST_PRESENTATION_TIMING_EXT: Self = Self(1_000_208_007);
+    pub const PRESENT_TIMING_SURFACE_CAPABILITIES_EXT: Self = Self(1_000_208_008);
+    pub const SWAPCHAIN_CALIBRATED_TIMESTAMP_INFO_EXT: Self = Self(1_000_208_009);
+}
+///Generated from 'VK_EXT_present_timing'
+impl SwapchainCreateFlagsKHR {
+    pub const PRESENT_TIMING_EXT: Self = Self(0b10_0000_0000);
+}
+///Generated from 'VK_EXT_present_timing'
+impl TimeDomainKHR {
+    pub const PRESENT_STAGE_LOCAL_EXT: Self = Self(1_000_208_000);
+    pub const SWAPCHAIN_LOCAL_EXT: Self = Self(1_000_208_001);
 }
 ///Generated from 'VK_INTEL_shader_integer_functions2'
 impl StructureType {
@@ -3577,10 +3603,27 @@ impl StructureType {
         1_000_386_000,
     );
 }
+///Generated from 'VK_KHR_shader_untyped_pointers'
+impl StructureType {
+    pub const PHYSICAL_DEVICE_SHADER_UNTYPED_POINTERS_FEATURES_KHR: Self = Self(
+        1_000_387_000,
+    );
+}
 ///Generated from 'VK_EXT_global_priority_query'
 impl StructureType {
     pub const PHYSICAL_DEVICE_GLOBAL_PRIORITY_QUERY_FEATURES_EXT: Self = Self::PHYSICAL_DEVICE_GLOBAL_PRIORITY_QUERY_FEATURES;
     pub const QUEUE_FAMILY_GLOBAL_PRIORITY_PROPERTIES_EXT: Self = Self::QUEUE_FAMILY_GLOBAL_PRIORITY_PROPERTIES;
+}
+///Generated from 'VK_VALVE_video_encode_rgb_conversion'
+impl StructureType {
+    pub const PHYSICAL_DEVICE_VIDEO_ENCODE_RGB_CONVERSION_FEATURES_VALVE: Self = Self(
+        1_000_390_000,
+    );
+    pub const VIDEO_ENCODE_RGB_CONVERSION_CAPABILITIES_VALVE: Self = Self(1_000_390_001);
+    pub const VIDEO_ENCODE_PROFILE_RGB_CONVERSION_INFO_VALVE: Self = Self(1_000_390_002);
+    pub const VIDEO_ENCODE_SESSION_RGB_CONVERSION_CREATE_INFO_VALVE: Self = Self(
+        1_000_390_003,
+    );
 }
 ///Generated from 'VK_EXT_image_view_min_lod'
 impl StructureType {
@@ -3848,18 +3891,12 @@ impl StructureType {
     pub const PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_FEATURES_NV: Self = Self(
         1_000_426_000,
     );
-    pub const PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_PROPERTIES_NV: Self = Self(
-        1_000_426_001,
-    );
+    pub const PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_PROPERTIES_NV: Self = Self::PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_PROPERTIES_KHR;
 }
 ///Generated from 'VK_NV_memory_decompression'
 impl StructureType {
-    pub const PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_FEATURES_NV: Self = Self(
-        1_000_427_000,
-    );
-    pub const PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_PROPERTIES_NV: Self = Self(
-        1_000_427_001,
-    );
+    pub const PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_FEATURES_NV: Self = Self::PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_FEATURES_EXT;
+    pub const PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_PROPERTIES_NV: Self = Self::PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_PROPERTIES_EXT;
 }
 ///Generated from 'VK_NV_device_generated_commands_compute'
 impl DescriptorSetLayoutCreateFlags {
@@ -3985,6 +4022,19 @@ impl StructureType {
 ///Generated from 'VK_EXT_nested_command_buffer'
 impl SubpassContents {
     pub const INLINE_AND_SECONDARY_COMMAND_BUFFERS_EXT: Self = Self::INLINE_AND_SECONDARY_COMMAND_BUFFERS_KHR;
+}
+///Generated from 'VK_OHOS_external_memory'
+impl ExternalMemoryHandleTypeFlags {
+    pub const OH_NATIVE_BUFFER_OHOS: Self = Self(0b1000_0000_0000_0000);
+}
+///Generated from 'VK_OHOS_external_memory'
+impl StructureType {
+    pub const NATIVE_BUFFER_USAGE_OHOS: Self = Self(1_000_452_000);
+    pub const NATIVE_BUFFER_PROPERTIES_OHOS: Self = Self(1_000_452_001);
+    pub const NATIVE_BUFFER_FORMAT_PROPERTIES_OHOS: Self = Self(1_000_452_002);
+    pub const IMPORT_NATIVE_BUFFER_INFO_OHOS: Self = Self(1_000_452_003);
+    pub const MEMORY_GET_NATIVE_BUFFER_INFO_OHOS: Self = Self(1_000_452_004);
+    pub const EXTERNAL_FORMAT_OHOS: Self = Self(1_000_452_005);
 }
 ///Generated from 'VK_EXT_external_memory_acquire_unmodified'
 impl StructureType {
@@ -4361,6 +4411,25 @@ impl StructureType {
     pub const ANTI_LAG_DATA_AMD: Self = Self(1_000_476_001);
     pub const ANTI_LAG_PRESENTATION_INFO_AMD: Self = Self(1_000_476_002);
 }
+///Generated from 'VK_AMDX_dense_geometry_format'
+impl BufferUsageFlags2 {
+    pub const COMPRESSED_DATA_DGF1_AMDX: Self = Self(
+        0b10_0000_0000_0000_0000_0000_0000_0000_0000,
+    );
+}
+///Generated from 'VK_AMDX_dense_geometry_format'
+impl GeometryTypeKHR {
+    pub const DENSE_GEOMETRY_FORMAT_TRIANGLES_AMDX: Self = Self(1_000_478_000);
+}
+///Generated from 'VK_AMDX_dense_geometry_format'
+impl StructureType {
+    pub const PHYSICAL_DEVICE_DENSE_GEOMETRY_FORMAT_FEATURES_AMDX: Self = Self(
+        1_000_478_000,
+    );
+    pub const ACCELERATION_STRUCTURE_DENSE_GEOMETRY_FORMAT_TRIANGLES_DATA_AMDX: Self = Self(
+        1_000_478_001,
+    );
+}
 ///Generated from 'VK_KHR_present_id2'
 impl StructureType {
     pub const SURFACE_CAPABILITIES_PRESENT_ID_2_KHR: Self = Self(1_000_479_000);
@@ -4481,6 +4550,11 @@ impl StructureType {
     pub const PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_VIEWPORTS_FEATURES_QCOM: Self = Self(
         1_000_488_000,
     );
+}
+///Generated from 'VK_NV_ray_tracing_invocation_reorder'
+impl RayTracingInvocationReorderModeEXT {
+    pub const NONE_NV: Self = Self::NONE;
+    pub const REORDER_NV: Self = Self::REORDER;
 }
 ///Generated from 'VK_NV_ray_tracing_invocation_reorder'
 impl StructureType {
@@ -4937,6 +5011,60 @@ impl StructureType {
     pub const TILE_MEMORY_BIND_INFO_QCOM: Self = Self(1_000_547_003);
     pub const TILE_MEMORY_SIZE_INFO_QCOM: Self = Self(1_000_547_004);
 }
+///Generated from 'VK_KHR_copy_memory_indirect'
+impl FormatFeatureFlags2 {
+    pub const COPY_IMAGE_INDIRECT_DST_KHR: Self = Self(
+        0b1000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000,
+    );
+}
+///Generated from 'VK_KHR_copy_memory_indirect'
+impl PipelineStageFlags2 {
+    pub const COPY_INDIRECT_KHR: Self = Self(
+        0b100_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000,
+    );
+}
+///Generated from 'VK_KHR_copy_memory_indirect'
+impl StructureType {
+    pub const PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_FEATURES_KHR: Self = Self(
+        1_000_549_000,
+    );
+    pub const PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_PROPERTIES_KHR: Self = Self(
+        1_000_426_001,
+    );
+    pub const COPY_MEMORY_INDIRECT_INFO_KHR: Self = Self(1_000_549_002);
+    pub const COPY_MEMORY_TO_IMAGE_INDIRECT_INFO_KHR: Self = Self(1_000_549_003);
+}
+///Generated from 'VK_EXT_memory_decompression'
+impl AccessFlags2 {
+    pub const MEMORY_DECOMPRESSION_READ_EXT: Self = Self(
+        0b1000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000,
+    );
+    pub const MEMORY_DECOMPRESSION_WRITE_EXT: Self = Self(
+        0b1_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000,
+    );
+}
+///Generated from 'VK_EXT_memory_decompression'
+impl BufferUsageFlags2 {
+    pub const MEMORY_DECOMPRESSION_EXT: Self = Self(
+        0b1_0000_0000_0000_0000_0000_0000_0000_0000,
+    );
+}
+///Generated from 'VK_EXT_memory_decompression'
+impl PipelineStageFlags2 {
+    pub const MEMORY_DECOMPRESSION_EXT: Self = Self(
+        0b10_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000,
+    );
+}
+///Generated from 'VK_EXT_memory_decompression'
+impl StructureType {
+    pub const PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_FEATURES_EXT: Self = Self(
+        1_000_427_000,
+    );
+    pub const PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_PROPERTIES_EXT: Self = Self(
+        1_000_427_001,
+    );
+    pub const DECOMPRESS_MEMORY_INFO_EXT: Self = Self(1_000_550_002);
+}
 ///Generated from 'VK_NV_display_stereo'
 impl StructureType {
     pub const DISPLAY_SURFACE_STEREO_CREATE_INFO_NV: Self = Self(1_000_551_000);
@@ -5124,6 +5252,10 @@ impl StructureType {
     );
 }
 ///Generated from 'VK_NV_cluster_acceleration_structure'
+impl BuildAccelerationStructureFlagsKHR {
+    pub const ALLOW_CLUSTER_OPACITY_MICROMAPS_NV: Self = Self(0b1_0000_0000_0000);
+}
+///Generated from 'VK_NV_cluster_acceleration_structure'
 impl OpacityMicromapSpecialIndexEXT {
     pub const CLUSTER_GEOMETRY_DISABLE_OPACITY_MICROMAP_NV: Self = Self(-5);
 }
@@ -5251,6 +5383,19 @@ impl StructureType {
     );
     pub const IMAGE_ALIGNMENT_CONTROL_CREATE_INFO_MESA: Self = Self(1_000_575_002);
 }
+///Generated from 'VK_KHR_shader_fma'
+impl StructureType {
+    pub const PHYSICAL_DEVICE_SHADER_FMA_FEATURES_KHR: Self = Self(1_000_579_000);
+}
+///Generated from 'VK_EXT_ray_tracing_invocation_reorder'
+impl StructureType {
+    pub const PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES_EXT: Self = Self(
+        1_000_581_000,
+    );
+    pub const PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_PROPERTIES_EXT: Self = Self(
+        1_000_581_001,
+    );
+}
 ///Generated from 'VK_EXT_depth_clamp_control'
 impl DynamicState {
     pub const DEPTH_CLAMP_RANGE_EXT: Self = Self(1_000_582_000);
@@ -5299,7 +5444,13 @@ impl VideoSessionCreateFlagsKHR {
 }
 ///Generated from 'VK_OHOS_surface'
 impl StructureType {
-    pub const OH_SURFACE_CREATE_INFO_OHOS: Self = Self(1_000_587_000);
+    pub const SURFACE_CREATE_INFO_OHOS: Self = Self(1_000_685_000);
+}
+///Generated from 'VK_OHOS_native_buffer'
+impl StructureType {
+    pub const NATIVE_BUFFER_OHOS: Self = Self(1_000_453_001);
+    pub const SWAPCHAIN_IMAGE_CREATE_INFO_OHOS: Self = Self(1_000_453_002);
+    pub const PHYSICAL_DEVICE_PRESENTATION_PROPERTIES_OHOS: Self = Self(1_000_453_003);
 }
 ///Generated from 'VK_HUAWEI_hdr_vivid'
 impl StructureType {
@@ -5340,6 +5491,20 @@ impl StructureType {
 impl StructureType {
     pub const PHYSICAL_DEVICE_DEPTH_CLAMP_ZERO_ONE_FEATURES_KHR: Self = Self(
         1_000_421_000,
+    );
+}
+///Generated from 'VK_ARM_performance_counters_by_region'
+impl StructureType {
+    pub const PHYSICAL_DEVICE_PERFORMANCE_COUNTERS_BY_REGION_FEATURES_ARM: Self = Self(
+        1_000_605_000,
+    );
+    pub const PHYSICAL_DEVICE_PERFORMANCE_COUNTERS_BY_REGION_PROPERTIES_ARM: Self = Self(
+        1_000_605_001,
+    );
+    pub const PERFORMANCE_COUNTER_ARM: Self = Self(1_000_605_002);
+    pub const PERFORMANCE_COUNTER_DESCRIPTION_ARM: Self = Self(1_000_605_003);
+    pub const RENDER_PASS_PERFORMANCE_COUNTERS_BY_REGION_BEGIN_INFO_ARM: Self = Self(
+        1_000_605_004,
     );
 }
 ///Generated from 'VK_EXT_vertex_attribute_robustness'
@@ -5420,7 +5585,7 @@ impl StructureType {
     pub const RENDER_PASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO_EXT: Self = Self(
         1_000_425_002,
     );
-    pub const RENDERING_END_INFO_EXT: Self = Self(1_000_619_003);
+    pub const RENDERING_END_INFO_EXT: Self = Self::RENDERING_END_INFO_KHR;
 }
 ///Generated from 'VK_EXT_zero_initialize_device_memory'
 impl ImageLayout {
@@ -5446,10 +5611,116 @@ impl StructureType {
         1_000_361_000,
     );
 }
+///Generated from 'VK_EXT_shader_64bit_indexing'
+impl PipelineCreateFlags2 {
+    pub const TYPE_64_INDEXING_EXT: Self = Self(
+        0b1000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000,
+    );
+}
+///Generated from 'VK_EXT_shader_64bit_indexing'
+impl ShaderCreateFlagsEXT {
+    pub const TYPE_64_INDEXING: Self = Self(0b1000_0000_0000_0000);
+}
+///Generated from 'VK_EXT_shader_64bit_indexing'
+impl StructureType {
+    pub const PHYSICAL_DEVICE_SHADER_64_INDEXING_FEATURES_EXT: Self = Self(
+        1_000_627_000,
+    );
+}
+///Generated from 'VK_EXT_custom_resolve'
+impl RenderingFlags {
+    pub const FRAGMENT_REGION_EXT: Self = Self(0b100_0000);
+    pub const CUSTOM_RESOLVE_EXT: Self = Self(0b1000_0000);
+}
+///Generated from 'VK_EXT_custom_resolve'
+impl ResolveModeFlags {
+    pub const CUSTOM_EXT: Self = Self(0b10_0000);
+}
+///Generated from 'VK_EXT_custom_resolve'
+impl StructureType {
+    pub const PHYSICAL_DEVICE_CUSTOM_RESOLVE_FEATURES_EXT: Self = Self(1_000_628_000);
+    pub const BEGIN_CUSTOM_RESOLVE_INFO_EXT: Self = Self(1_000_628_001);
+    pub const CUSTOM_RESOLVE_CREATE_INFO_EXT: Self = Self(1_000_628_002);
+}
+///Generated from 'VK_EXT_custom_resolve'
+impl SubpassDescriptionFlags {
+    pub const FRAGMENT_REGION_EXT: Self = Self(0b100);
+    pub const CUSTOM_RESOLVE_EXT: Self = Self(0b1000);
+}
+///Generated from 'VK_QCOM_data_graph_model'
+impl PhysicalDeviceDataGraphOperationTypeARM {
+    pub const NEURAL_MODEL_QCOM: Self = Self(1_000_629_000);
+    pub const BUILTIN_MODEL_QCOM: Self = Self(1_000_629_001);
+}
+///Generated from 'VK_QCOM_data_graph_model'
+impl PhysicalDeviceDataGraphProcessingEngineTypeARM {
+    pub const NEURAL_QCOM: Self = Self(1_000_629_000);
+    pub const COMPUTE_QCOM: Self = Self(1_000_629_001);
+}
+///Generated from 'VK_QCOM_data_graph_model'
+impl PipelineCacheHeaderVersion {
+    pub const DATA_GRAPH_QCOM: Self = Self(1_000_629_000);
+}
+///Generated from 'VK_QCOM_data_graph_model'
+impl StructureType {
+    pub const PHYSICAL_DEVICE_DATA_GRAPH_MODEL_FEATURES_QCOM: Self = Self(1_000_629_000);
+    pub const DATA_GRAPH_PIPELINE_BUILTIN_MODEL_CREATE_INFO_QCOM: Self = Self(
+        1_000_629_001,
+    );
+}
+///Generated from 'VK_KHR_maintenance10'
+impl AttachmentDescriptionFlags {
+    pub const RESOLVE_SKIP_TRANSFER_FUNCTION_KHR: Self = Self(0b10);
+    pub const RESOLVE_ENABLE_TRANSFER_FUNCTION_KHR: Self = Self(0b100);
+}
+///Generated from 'VK_KHR_maintenance10'
+impl FormatFeatureFlags2 {
+    pub const DEPTH_COPY_ON_COMPUTE_QUEUE_KHR: Self = Self(
+        0b1_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000,
+    );
+    pub const DEPTH_COPY_ON_TRANSFER_QUEUE_KHR: Self = Self(
+        0b10_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000,
+    );
+    pub const STENCIL_COPY_ON_COMPUTE_QUEUE_KHR: Self = Self(
+        0b100_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000,
+    );
+    pub const STENCIL_COPY_ON_TRANSFER_QUEUE_KHR: Self = Self(
+        0b1000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000,
+    );
+}
+///Generated from 'VK_KHR_maintenance10'
+impl RenderingAttachmentFlagsKHR {
+    pub const INPUT_ATTACHMENT_FEEDBACK: Self = Self(0b1);
+    pub const RESOLVE_SKIP_TRANSFER_FUNCTION: Self = Self(0b10);
+    pub const RESOLVE_ENABLE_TRANSFER_FUNCTION: Self = Self(0b100);
+}
+///Generated from 'VK_KHR_maintenance10'
+impl RenderingFlags {
+    pub const LOCAL_READ_CONCURRENT_ACCESS_CONTROL_KHR: Self = Self(0b1_0000_0000);
+}
+///Generated from 'VK_KHR_maintenance10'
+impl ResolveImageFlagsKHR {
+    pub const SKIP_TRANSFER_FUNCTION: Self = Self(0b1);
+    pub const ENABLE_TRANSFER_FUNCTION: Self = Self(0b10);
+}
+///Generated from 'VK_KHR_maintenance10'
+impl StructureType {
+    pub const PHYSICAL_DEVICE_MAINTENANCE_10_FEATURES_KHR: Self = Self(1_000_630_000);
+    pub const PHYSICAL_DEVICE_MAINTENANCE_10_PROPERTIES_KHR: Self = Self(1_000_630_001);
+    pub const RENDERING_ATTACHMENT_FLAGS_INFO_KHR: Self = Self(1_000_630_002);
+    pub const RENDERING_END_INFO_KHR: Self = Self(1_000_619_003);
+    pub const RESOLVE_IMAGE_MODE_INFO_KHR: Self = Self(1_000_630_004);
+}
 ///Generated from 'VK_SEC_pipeline_cache_incremental_mode'
 impl StructureType {
     pub const PHYSICAL_DEVICE_PIPELINE_CACHE_INCREMENTAL_MODE_FEATURES_SEC: Self = Self(
         1_000_637_000,
+    );
+}
+///Generated from 'VK_EXT_shader_uniform_buffer_unsized_array'
+impl StructureType {
+    pub const PHYSICAL_DEVICE_SHADER_UNIFORM_BUFFER_UNSIZED_ARRAY_FEATURES_EXT: Self = Self(
+        1_000_642_000,
     );
 }
 pub const KHR_SURFACE_NAME: &CStr = unsafe {
@@ -7686,6 +7957,36 @@ pub type PFN_vkSignalSemaphore = unsafe extern "system" fn(
     device: ash::vk::Device,
     p_signal_info: *const SemaphoreSignalInfo<'_>,
 ) -> Result;
+pub const EXT_PRESENT_TIMING_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_EXT_present_timing\0")
+};
+pub const EXT_PRESENT_TIMING_SPEC_VERSION: u32 = 3u32;
+#[allow(non_camel_case_types)]
+pub type PFN_vkSetSwapchainPresentTimingQueueSizeEXT = unsafe extern "system" fn(
+    device: ash::vk::Device,
+    swapchain: SwapchainKHR,
+    size: u32,
+) -> Result;
+#[allow(non_camel_case_types)]
+pub type PFN_vkGetSwapchainTimingPropertiesEXT = unsafe extern "system" fn(
+    device: ash::vk::Device,
+    swapchain: SwapchainKHR,
+    p_swapchain_timing_properties: *mut SwapchainTimingPropertiesEXT<'_>,
+    p_swapchain_timing_properties_counter: *mut u64,
+) -> Result;
+#[allow(non_camel_case_types)]
+pub type PFN_vkGetSwapchainTimeDomainPropertiesEXT = unsafe extern "system" fn(
+    device: ash::vk::Device,
+    swapchain: SwapchainKHR,
+    p_swapchain_time_domain_properties: *mut SwapchainTimeDomainPropertiesEXT<'_>,
+    p_time_domains_counter: *mut u64,
+) -> Result;
+#[allow(non_camel_case_types)]
+pub type PFN_vkGetPastPresentationTimingEXT = unsafe extern "system" fn(
+    device: ash::vk::Device,
+    p_past_presentation_timing_info: *const PastPresentationTimingInfoEXT<'_>,
+    p_past_presentation_timing_properties: *mut PastPresentationTimingPropertiesEXT<'_>,
+) -> Result;
 pub const INTEL_SHADER_INTEGER_FUNCTIONS2_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_INTEL_shader_integer_functions2\0")
 };
@@ -8460,7 +8761,7 @@ pub type PFN_vkCmdCudaLaunchKernelNV = unsafe extern "system" fn(
 pub const QCOM_TILE_SHADING_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_QCOM_tile_shading\0")
 };
-pub const QCOM_TILE_SHADING_SPEC_VERSION: u32 = 1u32;
+pub const QCOM_TILE_SHADING_SPEC_VERSION: u32 = 2u32;
 #[allow(non_camel_case_types)]
 pub type PFN_vkCmdDispatchTileQCOM = unsafe extern "system" fn(
     command_buffer: CommandBuffer,
@@ -9021,10 +9322,18 @@ pub type PFN_vkCmdTraceRaysIndirect2KHR = unsafe extern "system" fn(
     command_buffer: CommandBuffer,
     indirect_device_address: DeviceAddress,
 );
+pub const KHR_SHADER_UNTYPED_POINTERS_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_KHR_shader_untyped_pointers\0")
+};
+pub const KHR_SHADER_UNTYPED_POINTERS_SPEC_VERSION: u32 = 1u32;
 pub const EXT_GLOBAL_PRIORITY_QUERY_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_EXT_global_priority_query\0")
 };
 pub const EXT_GLOBAL_PRIORITY_QUERY_SPEC_VERSION: u32 = 1u32;
+pub const VALVE_VIDEO_ENCODE_RGB_CONVERSION_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_VALVE_video_encode_rgb_conversion\0")
+};
+pub const VALVE_VIDEO_ENCODE_RGB_CONVERSION_SPEC_VERSION: u32 = 1u32;
 pub const EXT_IMAGE_VIEW_MIN_LOD_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_EXT_image_view_min_lod\0")
 };
@@ -9356,6 +9665,22 @@ pub const EXT_NESTED_COMMAND_BUFFER_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_EXT_nested_command_buffer\0")
 };
 pub const EXT_NESTED_COMMAND_BUFFER_SPEC_VERSION: u32 = 1u32;
+pub const OHOS_EXTERNAL_MEMORY_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_OHOS_external_memory\0")
+};
+pub const OHOS_EXTERNAL_MEMORY_SPEC_VERSION: u32 = 1u32;
+#[allow(non_camel_case_types)]
+pub type PFN_vkGetNativeBufferPropertiesOHOS = unsafe extern "system" fn(
+    device: ash::vk::Device,
+    buffer: *const OH_NativeBuffer,
+    p_properties: *mut NativeBufferPropertiesOHOS<'_>,
+) -> Result;
+#[allow(non_camel_case_types)]
+pub type PFN_vkGetMemoryNativeBufferOHOS = unsafe extern "system" fn(
+    device: ash::vk::Device,
+    p_info: *const MemoryGetNativeBufferInfoOHOS<'_>,
+    p_buffer: *mut *mut OH_NativeBuffer,
+) -> Result;
 pub const EXT_EXTERNAL_MEMORY_ACQUIRE_UNMODIFIED_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_EXT_external_memory_acquire_unmodified\0")
 };
@@ -9715,6 +10040,10 @@ pub type PFN_vkAntiLagUpdateAMD = unsafe extern "system" fn(
     device: ash::vk::Device,
     p_data: *const AntiLagDataAMD<'_>,
 );
+pub const AMDX_DENSE_GEOMETRY_FORMAT_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_AMDX_dense_geometry_format\0")
+};
+pub const AMDX_DENSE_GEOMETRY_FORMAT_SPEC_VERSION: u32 = 1u32;
 pub const KHR_PRESENT_ID2_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_KHR_present_id2\0")
 };
@@ -10172,6 +10501,38 @@ pub type PFN_vkCmdBindTileMemoryQCOM = unsafe extern "system" fn(
     command_buffer: CommandBuffer,
     p_tile_memory_bind_info: *const TileMemoryBindInfoQCOM<'_>,
 );
+pub const KHR_COPY_MEMORY_INDIRECT_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_KHR_copy_memory_indirect\0")
+};
+pub const KHR_COPY_MEMORY_INDIRECT_SPEC_VERSION: u32 = 1u32;
+#[allow(non_camel_case_types)]
+pub type PFN_vkCmdCopyMemoryIndirectKHR = unsafe extern "system" fn(
+    command_buffer: CommandBuffer,
+    p_copy_memory_indirect_info: *const CopyMemoryIndirectInfoKHR<'_>,
+);
+#[allow(non_camel_case_types)]
+pub type PFN_vkCmdCopyMemoryToImageIndirectKHR = unsafe extern "system" fn(
+    command_buffer: CommandBuffer,
+    p_copy_memory_to_image_indirect_info: *const CopyMemoryToImageIndirectInfoKHR<'_>,
+);
+pub const EXT_MEMORY_DECOMPRESSION_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_EXT_memory_decompression\0")
+};
+pub const EXT_MEMORY_DECOMPRESSION_SPEC_VERSION: u32 = 1u32;
+#[allow(non_camel_case_types)]
+pub type PFN_vkCmdDecompressMemoryEXT = unsafe extern "system" fn(
+    command_buffer: CommandBuffer,
+    p_decompress_memory_info_ext: *const DecompressMemoryInfoEXT<'_>,
+);
+#[allow(non_camel_case_types)]
+pub type PFN_vkCmdDecompressMemoryIndirectCountEXT = unsafe extern "system" fn(
+    command_buffer: CommandBuffer,
+    decompression_method: MemoryDecompressionMethodFlagsEXT,
+    indirect_commands_address: DeviceAddress,
+    indirect_commands_count_address: DeviceAddress,
+    max_decompression_count: u32,
+    stride: u32,
+);
 pub const NV_DISPLAY_STEREO_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_NV_display_stereo\0")
 };
@@ -10242,7 +10603,7 @@ pub const NV_RAY_TRACING_VALIDATION_SPEC_VERSION: u32 = 1u32;
 pub const NV_CLUSTER_ACCELERATION_STRUCTURE_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_NV_cluster_acceleration_structure\0")
 };
-pub const NV_CLUSTER_ACCELERATION_STRUCTURE_SPEC_VERSION: u32 = 3u32;
+pub const NV_CLUSTER_ACCELERATION_STRUCTURE_SPEC_VERSION: u32 = 4u32;
 #[allow(non_camel_case_types)]
 pub type PFN_vkGetClusterAccelerationStructureBuildSizesNV = unsafe extern "system" fn(
     device: ash::vk::Device,
@@ -10339,6 +10700,14 @@ pub const MESA_IMAGE_ALIGNMENT_CONTROL_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_MESA_image_alignment_control\0")
 };
 pub const MESA_IMAGE_ALIGNMENT_CONTROL_SPEC_VERSION: u32 = 1u32;
+pub const KHR_SHADER_FMA_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_KHR_shader_fma\0")
+};
+pub const KHR_SHADER_FMA_SPEC_VERSION: u32 = 1u32;
+pub const EXT_RAY_TRACING_INVOCATION_REORDER_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_EXT_ray_tracing_invocation_reorder\0")
+};
+pub const EXT_RAY_TRACING_INVOCATION_REORDER_SPEC_VERSION: u32 = 1u32;
 pub const EXT_DEPTH_CLAMP_CONTROL_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_EXT_depth_clamp_control\0")
 };
@@ -10361,6 +10730,33 @@ pub type PFN_vkCreateSurfaceOHOS = unsafe extern "system" fn(
     p_create_info: *const SurfaceCreateInfoOHOS<'_>,
     p_allocator: *const AllocationCallbacks,
     p_surface: *mut SurfaceKHR,
+) -> Result;
+pub const OHOS_NATIVE_BUFFER_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_OHOS_native_buffer\0")
+};
+pub const OHOS_NATIVE_BUFFER_SPEC_VERSION: u32 = 1u32;
+#[allow(non_camel_case_types)]
+pub type PFN_vkGetSwapchainGrallocUsageOHOS = unsafe extern "system" fn(
+    device: ash::vk::Device,
+    format: Format,
+    image_usage: ImageUsageFlags,
+    gralloc_usage: *mut u64,
+) -> Result;
+#[allow(non_camel_case_types)]
+pub type PFN_vkAcquireImageOHOS = unsafe extern "system" fn(
+    device: ash::vk::Device,
+    image: Image,
+    native_fence_fd: i32,
+    semaphore: Semaphore,
+    fence: Fence,
+) -> Result;
+#[allow(non_camel_case_types)]
+pub type PFN_vkQueueSignalReleaseImageOHOS = unsafe extern "system" fn(
+    queue: Queue,
+    wait_semaphore_count: u32,
+    p_wait_semaphores: *const Semaphore,
+    image: Image,
+    p_native_fence_fd: *mut i32,
 ) -> Result;
 pub const HUAWEI_HDR_VIVID_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_HUAWEI_hdr_vivid\0")
@@ -10401,6 +10797,18 @@ pub const KHR_DEPTH_CLAMP_ZERO_ONE_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_KHR_depth_clamp_zero_one\0")
 };
 pub const KHR_DEPTH_CLAMP_ZERO_ONE_SPEC_VERSION: u32 = 1u32;
+pub const ARM_PERFORMANCE_COUNTERS_BY_REGION_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_ARM_performance_counters_by_region\0")
+};
+pub const ARM_PERFORMANCE_COUNTERS_BY_REGION_SPEC_VERSION: u32 = 1u32;
+#[allow(non_camel_case_types)]
+pub type PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceCountersByRegionARM = unsafe extern "system" fn(
+    physical_device: PhysicalDevice,
+    queue_family_index: u32,
+    p_counter_count: *mut u32,
+    p_counters: *mut PerformanceCounterARM<'_>,
+    p_counter_descriptions: *mut PerformanceCounterDescriptionARM<'_>,
+) -> Result;
 pub const EXT_VERTEX_ATTRIBUTE_ROBUSTNESS_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_EXT_vertex_attribute_robustness\0")
 };
@@ -10426,9 +10834,9 @@ pub const EXT_FRAGMENT_DENSITY_MAP_OFFSET_NAME: &CStr = unsafe {
 };
 pub const EXT_FRAGMENT_DENSITY_MAP_OFFSET_SPEC_VERSION: u32 = 1u32;
 #[allow(non_camel_case_types)]
-pub type PFN_vkCmdEndRendering2EXT = unsafe extern "system" fn(
+pub type PFN_vkCmdEndRendering2KHR = unsafe extern "system" fn(
     command_buffer: CommandBuffer,
-    p_rendering_end_info: *const RenderingEndInfoEXT<'_>,
+    p_rendering_end_info: *const RenderingEndInfoKHR<'_>,
 );
 pub const EXT_ZERO_INITIALIZE_DEVICE_MEMORY_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_EXT_zero_initialize_device_memory\0")
@@ -10438,7 +10846,32 @@ pub const KHR_PRESENT_MODE_FIFO_LATEST_READY_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_KHR_present_mode_fifo_latest_ready\0")
 };
 pub const KHR_PRESENT_MODE_FIFO_LATEST_READY_SPEC_VERSION: u32 = 1u32;
+pub const EXT_SHADER_64BIT_INDEXING_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_EXT_shader_64bit_indexing\0")
+};
+pub const EXT_SHADER_64BIT_INDEXING_SPEC_VERSION: u32 = 1u32;
+pub const EXT_CUSTOM_RESOLVE_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_EXT_custom_resolve\0")
+};
+pub const EXT_CUSTOM_RESOLVE_SPEC_VERSION: u32 = 1u32;
+#[allow(non_camel_case_types)]
+pub type PFN_vkCmdBeginCustomResolveEXT = unsafe extern "system" fn(
+    command_buffer: CommandBuffer,
+    p_begin_custom_resolve_info: *const BeginCustomResolveInfoEXT<'_>,
+);
+pub const QCOM_DATA_GRAPH_MODEL_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_QCOM_data_graph_model\0")
+};
+pub const QCOM_DATA_GRAPH_MODEL_SPEC_VERSION: u32 = 1u32;
+pub const KHR_MAINTENANCE10_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_KHR_maintenance10\0")
+};
+pub const KHR_MAINTENANCE10_SPEC_VERSION: u32 = 1u32;
 pub const SEC_PIPELINE_CACHE_INCREMENTAL_MODE_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_SEC_pipeline_cache_incremental_mode\0")
 };
 pub const SEC_PIPELINE_CACHE_INCREMENTAL_MODE_SPEC_VERSION: u32 = 1u32;
+pub const EXT_SHADER_UNIFORM_BUFFER_UNSIZED_ARRAY_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_EXT_shader_uniform_buffer_unsized_array\0")
+};
+pub const EXT_SHADER_UNIFORM_BUFFER_UNSIZED_ARRAY_SPEC_VERSION: u32 = 1u32;

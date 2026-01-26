@@ -43,3 +43,5 @@ pub type MTLCommandQueue_id = *mut c_void;
 pub type MTLDevice_id = *mut c_void;
 pub type MTLSharedEvent_id = *mut c_void;
 pub type MTLTexture_id = *mut c_void;
+pub type OH_NativeBuffer = c_void;
+pub type OHBufferHandle = c_void;

@@ -1135,9 +1135,9 @@ impl ObjectType {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRayTracingInvocationReorderModeNV.html>
-pub struct RayTracingInvocationReorderModeNV(pub(crate) i32);
-impl RayTracingInvocationReorderModeNV {
+///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkRayTracingInvocationReorderModeEXT.html>
+pub struct RayTracingInvocationReorderModeEXT(pub(crate) i32);
+impl RayTracingInvocationReorderModeEXT {
     #[inline]
     pub const fn from_raw(x: i32) -> Self {
         Self(x)
@@ -1147,7 +1147,7 @@ impl RayTracingInvocationReorderModeNV {
         self.0
     }
 }
-impl RayTracingInvocationReorderModeNV {
+impl RayTracingInvocationReorderModeEXT {
     pub const NONE: Self = Self(0);
     pub const REORDER: Self = Self(1);
 }
@@ -2041,6 +2041,8 @@ impl DriverId {
     pub const MESA_HONEYKRISP: Self = Self(26);
     ///Vulkan SC Emulation on Vulkan
     pub const VULKAN_SC_EMULATION_ON_VULKAN: Self = Self(27);
+    ///Mesa open source project
+    pub const MESA_KOSMICKRISP: Self = Self(28);
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
@@ -3256,6 +3258,23 @@ impl OutOfBandQueueTypeNV {
 }
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
 #[repr(transparent)]
+///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkCompressedTriangleFormatAMDX.html>
+pub struct CompressedTriangleFormatAMDX(pub(crate) i32);
+impl CompressedTriangleFormatAMDX {
+    #[inline]
+    pub const fn from_raw(x: i32) -> Self {
+        Self(x)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl CompressedTriangleFormatAMDX {
+    pub const DGF1: Self = Self(0);
+}
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[repr(transparent)]
 ///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDepthClampModeEXT.html>
 pub struct DepthClampModeEXT(pub(crate) i32);
 impl DepthClampModeEXT {
@@ -3414,6 +3433,23 @@ impl PhysicalDeviceDataGraphOperationTypeARM {
 impl PhysicalDeviceDataGraphOperationTypeARM {
     pub const SPIRV_EXTENDED_INSTRUCTION_SET: Self = Self(0);
 }
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[repr(transparent)]
+///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDataGraphModelCacheTypeQCOM.html>
+pub struct DataGraphModelCacheTypeQCOM(pub(crate) i32);
+impl DataGraphModelCacheTypeQCOM {
+    #[inline]
+    pub const fn from_raw(x: i32) -> Self {
+        Self(x)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl DataGraphModelCacheTypeQCOM {
+    pub const GENERIC_BINARY: Self = Self(0);
+}
 impl fmt::Debug for ObjectType {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         let name = match *self {
@@ -3476,8 +3512,8 @@ impl fmt::Debug for ObjectType {
             Self::EXTERNAL_COMPUTE_QUEUE_NV => Some("EXTERNAL_COMPUTE_QUEUE_NV"),
             Self::INDIRECT_COMMANDS_LAYOUT_EXT => Some("INDIRECT_COMMANDS_LAYOUT_EXT"),
             Self::INDIRECT_EXECUTION_SET_EXT => Some("INDIRECT_EXECUTION_SET_EXT"),
-            Self::SAMPLER_YCBCR_CONVERSION => Some("SAMPLER_YCBCR_CONVERSION"),
             Self::DESCRIPTOR_UPDATE_TEMPLATE => Some("DESCRIPTOR_UPDATE_TEMPLATE"),
+            Self::SAMPLER_YCBCR_CONVERSION => Some("SAMPLER_YCBCR_CONVERSION"),
             Self::PRIVATE_DATA_SLOT => Some("PRIVATE_DATA_SLOT"),
             _ => None,
         };
@@ -3515,7 +3551,6 @@ impl fmt::Debug for Result {
             Self::ERROR_INCOMPATIBLE_DISPLAY_KHR => {
                 Some("ERROR_INCOMPATIBLE_DISPLAY_KHR")
             }
-            Self::ERROR_VALIDATION_FAILED_EXT => Some("ERROR_VALIDATION_FAILED_EXT"),
             Self::ERROR_INVALID_SHADER_NV => Some("ERROR_INVALID_SHADER_NV"),
             Self::ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR => {
                 Some("ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR")
@@ -3538,6 +3573,9 @@ impl fmt::Debug for Result {
             Self::ERROR_INVALID_DRM_FORMAT_MODIFIER_PLANE_LAYOUT_EXT => {
                 Some("ERROR_INVALID_DRM_FORMAT_MODIFIER_PLANE_LAYOUT_EXT")
             }
+            Self::ERROR_PRESENT_TIMING_QUEUE_FULL_EXT => {
+                Some("ERROR_PRESENT_TIMING_QUEUE_FULL_EXT")
+            }
             Self::ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT => {
                 Some("ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT")
             }
@@ -3556,12 +3594,13 @@ impl fmt::Debug for Result {
             }
             Self::PIPELINE_BINARY_MISSING_KHR => Some("PIPELINE_BINARY_MISSING_KHR"),
             Self::ERROR_NOT_ENOUGH_SPACE_KHR => Some("ERROR_NOT_ENOUGH_SPACE_KHR"),
+            Self::ERROR_VALIDATION_FAILED => Some("ERROR_VALIDATION_FAILED"),
             Self::ERROR_OUT_OF_POOL_MEMORY => Some("ERROR_OUT_OF_POOL_MEMORY"),
             Self::ERROR_INVALID_EXTERNAL_HANDLE => Some("ERROR_INVALID_EXTERNAL_HANDLE"),
-            Self::ERROR_FRAGMENTATION => Some("ERROR_FRAGMENTATION"),
             Self::ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS => {
                 Some("ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS")
             }
+            Self::ERROR_FRAGMENTATION => Some("ERROR_FRAGMENTATION"),
             Self::PIPELINE_COMPILE_REQUIRED => Some("PIPELINE_COMPILE_REQUIRED"),
             Self::ERROR_NOT_PERMITTED => Some("ERROR_NOT_PERMITTED"),
             _ => None,

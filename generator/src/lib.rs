@@ -41,6 +41,13 @@ fn contains_desired_api(api: &str) -> bool {
     api.split(',').any(|n| n == DESIRED_API)
 }
 
+fn option_contains_desired_api(api: Option<&str>) -> bool {
+    match api {
+        Some(api) => contains_desired_api(api),
+        None => true,
+    }
+}
+
 macro_rules! get_variant {
     ($variant:path) => {
         |enum_| match enum_ {
@@ -974,7 +981,7 @@ fn generate_function_pointers<'a>(
             let params = cmd
                 .params
                 .iter()
-                .filter(|param| matches!(param.api.as_deref(), None | Some(DESIRED_API)));
+                .filter(|param| option_contains_desired_api(param.api.as_deref()));
 
             let params_tokens: Vec<_> = params
                 .clone()
@@ -1207,7 +1214,7 @@ pub fn generate_extension_constants<'a>(
             api,
             items
         }))
-        .filter(|(api, _items)| matches!(api.as_deref(), None | Some(DESIRED_API)))
+        .filter(|(api, _items)| option_contains_desired_api(api.as_deref()))
         .flat_map(|(_api, items)| items);
 
     let mut extended_enums = BTreeMap::<String, Vec<ExtensionConstant<'_>>>::new();
@@ -1218,7 +1225,7 @@ pub fn generate_extension_constants<'a>(
                 continue;
             }
 
-            if !matches!(enum_.api.as_deref(), None | Some(DESIRED_API)) {
+            if !option_contains_desired_api(enum_.api.as_deref()) {
                 continue;
             }
 
@@ -1282,6 +1289,7 @@ pub struct ExtensionCommands<'a> {
     high_level: TokenStream,
 }
 
+#[allow(clippy::double_parens)]
 pub fn generate_extension_commands<'a>(
     full_extension_name: &'a str,
     items: &'a [vk_parse::ExtensionChild],
@@ -1327,7 +1335,7 @@ pub fn generate_extension_commands<'a>(
             api,
             items
         }))
-        .filter(|(api, _items)| matches!(api.as_deref(), None | Some(DESIRED_API)))
+        .filter(|(api, _items)| option_contains_desired_api(api.as_deref()))
         .flat_map(|(_api, items)| items)
         .filter_map(get_variant!(vk_parse::InterfaceItem::Command { name }));
 
@@ -1610,6 +1618,7 @@ pub fn variant_ident(enum_name: &str, variant_name: &str) -> Ident {
         "_GGP",
         "_GOOGLE",
         "_HUAWEI",
+        "_OHOS",
         "_IMG",
         "_INTEL",
         "_JUICE",
@@ -1652,6 +1661,7 @@ pub fn variant_ident(enum_name: &str, variant_name: &str) -> Ident {
             if enum_name == "VkResult" {
                 variant_name.strip_prefix("VK").unwrap()
             } else {
+                println!("enum_name: {enum_name}");
                 panic!("Failed to strip {struct_name} prefix from enum variant {variant_name}")
             }
         });
@@ -2578,7 +2588,7 @@ pub fn generate_struct(
                 .filter_map(get_variant!(vk_parse::TypeMember::Definition)),
         )
         .filter(|(_, vk_parse_field)| {
-            matches!(vk_parse_field.api.as_deref(), None | Some(DESIRED_API))
+            option_contains_desired_api(vk_parse_field.api.as_deref())
         })
         .map(|(field, vk_parse_field)| {
             let deprecated = vk_parse_field
@@ -2743,10 +2753,8 @@ pub fn generate_definition_vk_parse(
     allowed_types: &HashSet<&str>,
     identifier_renames: &mut BTreeMap<String, Ident>,
 ) -> Option<TokenStream> {
-    if let Some(api) = &definition.api {
-        if api != DESIRED_API {
-            return None;
-        }
+    if !option_contains_desired_api(definition.api.as_deref()) {
+        return None;
     }
 
     match definition.category.as_deref() {
@@ -2836,9 +2844,16 @@ pub fn generate_feature<'a>(
             },
         );
     let version = feature.version_string();
+    let subset = feature
+        .name
+        .strip_prefix("VK_")
+        .unwrap()
+        .strip_suffix(&format!("_VERSION_{}", feature.version_string()))
+        .unwrap_or_default()
+        .to_upper_camel_case();
     let (static_fn_fp, static_fn_table) = if feature.is_version(1, 0) {
         generate_function_pointers(
-            format_ident!("{}", "StaticFn"),
+            format_ident!("{subset}{}", "StaticFn"),
             &static_commands,
             &HashMap::new(),
             fn_cache,
@@ -2849,7 +2864,7 @@ pub fn generate_feature<'a>(
         (quote! {}, quote! {})
     };
     let (entry_fp, entry_table) = generate_function_pointers(
-        format_ident!("EntryFnV{}", version),
+        format_ident!("{subset}EntryFnV{}", version),
         &entry_commands,
         &HashMap::new(),
         fn_cache,
@@ -2860,7 +2875,7 @@ pub fn generate_feature<'a>(
         ),
     );
     let (instance_fp, instance_table) = generate_function_pointers(
-        format_ident!("InstanceFnV{}", version),
+        format_ident!("{subset}InstanceFnV{}", version),
         &instance_commands,
         &HashMap::new(),
         fn_cache,
@@ -2871,7 +2886,7 @@ pub fn generate_feature<'a>(
         ),
     );
     let (device_fp, device_table) = generate_function_pointers(
-        format_ident!("DeviceFnV{}", version),
+        format_ident!("{subset}DeviceFnV{}", version),
         &device_commands,
         &HashMap::new(),
         fn_cache,
@@ -3182,7 +3197,7 @@ pub fn write_source_code<P: AsRef<Path>>(vk_headers_dir: &Path, src_dir: P) {
     let (required_types, required_commands) = features_children
         .chain(extension_children)
         .filter_map(get_variant!(vk_parse::FeatureChild::Require { api, items }))
-        .filter(|(api, _items)| matches!(api.as_deref(), None | Some(DESIRED_API)))
+        .filter(|(api, _items)| option_contains_desired_api(api.as_deref()))
         .flat_map(|(_api, items)| items)
         .fold((HashSet::new(), HashSet::new()), |mut acc, elem| {
             match elem {
