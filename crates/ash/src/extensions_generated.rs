@@ -3536,6 +3536,334 @@ pub mod ext {
             crate::vk::EXT_SAMPLER_FILTER_MINMAX_NAME as NAME,
         };
     }
+    ///VK_EXT_descriptor_heap
+    pub mod descriptor_heap {
+        use core::ffi::*;
+        use crate::vk::*;
+        pub use {
+            crate::vk::EXT_DESCRIPTOR_HEAP_SPEC_VERSION as SPEC_VERSION,
+            crate::vk::EXT_DESCRIPTOR_HEAP_NAME as NAME,
+        };
+        ///VK_EXT_descriptor_heap instance-level functions
+        #[derive(Clone)]
+        pub struct Instance {
+            pub(crate) fp: InstanceFn,
+            pub(crate) handle: ash::vk::Instance,
+        }
+        impl Instance {
+            pub fn new(entry: &ash::Entry, instance: &ash::Instance) -> Self {
+                let handle = instance.handle();
+                let fp = InstanceFn::load(|name| unsafe {
+                    core::mem::transmute(
+                        entry.get_instance_proc_addr(handle, name.as_ptr()),
+                    )
+                });
+                Self { handle, fp }
+            }
+            #[inline]
+            pub fn fp(&self) -> &InstanceFn {
+                &self.fp
+            }
+            #[inline]
+            pub fn instance(&self) -> ash::vk::Instance {
+                self.handle
+            }
+        }
+        #[derive(Clone)]
+        ///Raw VK_EXT_descriptor_heap instance-level function pointers
+        pub struct InstanceFn {
+            pub get_physical_device_descriptor_size_ext: PFN_vkGetPhysicalDeviceDescriptorSizeEXT,
+        }
+        unsafe impl Send for InstanceFn {}
+        unsafe impl Sync for InstanceFn {}
+        impl InstanceFn {
+            pub fn load<F: FnMut(&CStr) -> *const c_void>(mut f: F) -> Self {
+                Self::load_erased(&mut f)
+            }
+            fn load_erased(_f: &mut dyn FnMut(&CStr) -> *const c_void) -> Self {
+                Self {
+                    get_physical_device_descriptor_size_ext: unsafe {
+                        unsafe extern "system" fn get_physical_device_descriptor_size_ext(
+                            _physical_device: PhysicalDevice,
+                            _descriptor_type: DescriptorType,
+                        ) -> DeviceSize {
+                            panic!(
+                                concat!(
+                                    "Unable to load ",
+                                    stringify!(get_physical_device_descriptor_size_ext),
+                                ),
+                            )
+                        }
+                        let cname = CStr::from_bytes_with_nul_unchecked(
+                            b"vkGetPhysicalDeviceDescriptorSizeEXT\0",
+                        );
+                        let val = _f(cname);
+                        if val.is_null() {
+                            get_physical_device_descriptor_size_ext
+                        } else {
+                            ::core::mem::transmute(val)
+                        }
+                    },
+                }
+            }
+        }
+        ///VK_EXT_descriptor_heap device-level functions
+        #[derive(Clone)]
+        pub struct Device {
+            pub(crate) fp: DeviceFn,
+            pub(crate) handle: ash::vk::Device,
+        }
+        impl Device {
+            pub fn new(instance: &ash::Instance, device: &ash::Device) -> Self {
+                let handle = device.handle();
+                let fp = DeviceFn::load(|name| unsafe {
+                    core::mem::transmute(
+                        instance.get_device_proc_addr(handle, name.as_ptr()),
+                    )
+                });
+                Self { handle, fp }
+            }
+            #[inline]
+            pub fn fp(&self) -> &DeviceFn {
+                &self.fp
+            }
+            #[inline]
+            pub fn device(&self) -> ash::vk::Device {
+                self.handle
+            }
+        }
+        #[derive(Clone)]
+        ///Raw VK_EXT_descriptor_heap device-level function pointers
+        pub struct DeviceFn {
+            pub write_sampler_descriptors_ext: PFN_vkWriteSamplerDescriptorsEXT,
+            pub write_resource_descriptors_ext: PFN_vkWriteResourceDescriptorsEXT,
+            pub cmd_bind_sampler_heap_ext: PFN_vkCmdBindSamplerHeapEXT,
+            pub cmd_bind_resource_heap_ext: PFN_vkCmdBindResourceHeapEXT,
+            pub cmd_push_data_ext: PFN_vkCmdPushDataEXT,
+            pub get_image_opaque_capture_data_ext: PFN_vkGetImageOpaqueCaptureDataEXT,
+            pub register_custom_border_color_ext: PFN_vkRegisterCustomBorderColorEXT,
+            pub unregister_custom_border_color_ext: PFN_vkUnregisterCustomBorderColorEXT,
+            pub get_tensor_opaque_capture_data_arm: PFN_vkGetTensorOpaqueCaptureDataARM,
+        }
+        unsafe impl Send for DeviceFn {}
+        unsafe impl Sync for DeviceFn {}
+        impl DeviceFn {
+            pub fn load<F: FnMut(&CStr) -> *const c_void>(mut f: F) -> Self {
+                Self::load_erased(&mut f)
+            }
+            fn load_erased(_f: &mut dyn FnMut(&CStr) -> *const c_void) -> Self {
+                Self {
+                    write_sampler_descriptors_ext: unsafe {
+                        unsafe extern "system" fn write_sampler_descriptors_ext(
+                            _device: ash::vk::Device,
+                            _sampler_count: u32,
+                            _p_samplers: *const SamplerCreateInfo<'_>,
+                            _p_descriptors: *const HostAddressRangeEXT<'_>,
+                        ) -> Result {
+                            panic!(
+                                concat!(
+                                    "Unable to load ",
+                                    stringify!(write_sampler_descriptors_ext),
+                                ),
+                            )
+                        }
+                        let cname = CStr::from_bytes_with_nul_unchecked(
+                            b"vkWriteSamplerDescriptorsEXT\0",
+                        );
+                        let val = _f(cname);
+                        if val.is_null() {
+                            write_sampler_descriptors_ext
+                        } else {
+                            ::core::mem::transmute(val)
+                        }
+                    },
+                    write_resource_descriptors_ext: unsafe {
+                        unsafe extern "system" fn write_resource_descriptors_ext(
+                            _device: ash::vk::Device,
+                            _resource_count: u32,
+                            _p_resources: *const ResourceDescriptorInfoEXT<'_>,
+                            _p_descriptors: *const HostAddressRangeEXT<'_>,
+                        ) -> Result {
+                            panic!(
+                                concat!(
+                                    "Unable to load ",
+                                    stringify!(write_resource_descriptors_ext),
+                                ),
+                            )
+                        }
+                        let cname = CStr::from_bytes_with_nul_unchecked(
+                            b"vkWriteResourceDescriptorsEXT\0",
+                        );
+                        let val = _f(cname);
+                        if val.is_null() {
+                            write_resource_descriptors_ext
+                        } else {
+                            ::core::mem::transmute(val)
+                        }
+                    },
+                    cmd_bind_sampler_heap_ext: unsafe {
+                        unsafe extern "system" fn cmd_bind_sampler_heap_ext(
+                            _command_buffer: CommandBuffer,
+                            _p_bind_info: *const BindHeapInfoEXT<'_>,
+                        ) {
+                            panic!(
+                                concat!(
+                                    "Unable to load ",
+                                    stringify!(cmd_bind_sampler_heap_ext),
+                                ),
+                            )
+                        }
+                        let cname = CStr::from_bytes_with_nul_unchecked(
+                            b"vkCmdBindSamplerHeapEXT\0",
+                        );
+                        let val = _f(cname);
+                        if val.is_null() {
+                            cmd_bind_sampler_heap_ext
+                        } else {
+                            ::core::mem::transmute(val)
+                        }
+                    },
+                    cmd_bind_resource_heap_ext: unsafe {
+                        unsafe extern "system" fn cmd_bind_resource_heap_ext(
+                            _command_buffer: CommandBuffer,
+                            _p_bind_info: *const BindHeapInfoEXT<'_>,
+                        ) {
+                            panic!(
+                                concat!(
+                                    "Unable to load ",
+                                    stringify!(cmd_bind_resource_heap_ext),
+                                ),
+                            )
+                        }
+                        let cname = CStr::from_bytes_with_nul_unchecked(
+                            b"vkCmdBindResourceHeapEXT\0",
+                        );
+                        let val = _f(cname);
+                        if val.is_null() {
+                            cmd_bind_resource_heap_ext
+                        } else {
+                            ::core::mem::transmute(val)
+                        }
+                    },
+                    cmd_push_data_ext: unsafe {
+                        unsafe extern "system" fn cmd_push_data_ext(
+                            _command_buffer: CommandBuffer,
+                            _p_push_data_info: *const PushDataInfoEXT<'_>,
+                        ) {
+                            panic!(
+                                concat!("Unable to load ", stringify!(cmd_push_data_ext)),
+                            )
+                        }
+                        let cname = CStr::from_bytes_with_nul_unchecked(
+                            b"vkCmdPushDataEXT\0",
+                        );
+                        let val = _f(cname);
+                        if val.is_null() {
+                            cmd_push_data_ext
+                        } else {
+                            ::core::mem::transmute(val)
+                        }
+                    },
+                    get_image_opaque_capture_data_ext: unsafe {
+                        unsafe extern "system" fn get_image_opaque_capture_data_ext(
+                            _device: ash::vk::Device,
+                            _image_count: u32,
+                            _p_images: *const Image,
+                            _p_datas: *mut HostAddressRangeEXT<'_>,
+                        ) -> Result {
+                            panic!(
+                                concat!(
+                                    "Unable to load ",
+                                    stringify!(get_image_opaque_capture_data_ext),
+                                ),
+                            )
+                        }
+                        let cname = CStr::from_bytes_with_nul_unchecked(
+                            b"vkGetImageOpaqueCaptureDataEXT\0",
+                        );
+                        let val = _f(cname);
+                        if val.is_null() {
+                            get_image_opaque_capture_data_ext
+                        } else {
+                            ::core::mem::transmute(val)
+                        }
+                    },
+                    register_custom_border_color_ext: unsafe {
+                        unsafe extern "system" fn register_custom_border_color_ext(
+                            _device: ash::vk::Device,
+                            _p_border_color: *const SamplerCustomBorderColorCreateInfoEXT<
+                                '_,
+                            >,
+                            _request_index: Bool32,
+                            _p_index: *mut u32,
+                        ) -> Result {
+                            panic!(
+                                concat!(
+                                    "Unable to load ",
+                                    stringify!(register_custom_border_color_ext),
+                                ),
+                            )
+                        }
+                        let cname = CStr::from_bytes_with_nul_unchecked(
+                            b"vkRegisterCustomBorderColorEXT\0",
+                        );
+                        let val = _f(cname);
+                        if val.is_null() {
+                            register_custom_border_color_ext
+                        } else {
+                            ::core::mem::transmute(val)
+                        }
+                    },
+                    unregister_custom_border_color_ext: unsafe {
+                        unsafe extern "system" fn unregister_custom_border_color_ext(
+                            _device: ash::vk::Device,
+                            _index: u32,
+                        ) {
+                            panic!(
+                                concat!(
+                                    "Unable to load ",
+                                    stringify!(unregister_custom_border_color_ext),
+                                ),
+                            )
+                        }
+                        let cname = CStr::from_bytes_with_nul_unchecked(
+                            b"vkUnregisterCustomBorderColorEXT\0",
+                        );
+                        let val = _f(cname);
+                        if val.is_null() {
+                            unregister_custom_border_color_ext
+                        } else {
+                            ::core::mem::transmute(val)
+                        }
+                    },
+                    get_tensor_opaque_capture_data_arm: unsafe {
+                        unsafe extern "system" fn get_tensor_opaque_capture_data_arm(
+                            _device: ash::vk::Device,
+                            _tensor_count: u32,
+                            _p_tensors: *const TensorARM,
+                            _p_datas: *mut HostAddressRangeEXT<'_>,
+                        ) -> Result {
+                            panic!(
+                                concat!(
+                                    "Unable to load ",
+                                    stringify!(get_tensor_opaque_capture_data_arm),
+                                ),
+                            )
+                        }
+                        let cname = CStr::from_bytes_with_nul_unchecked(
+                            b"vkGetTensorOpaqueCaptureDataARM\0",
+                        );
+                        let val = _f(cname);
+                        if val.is_null() {
+                            get_tensor_opaque_capture_data_arm
+                        } else {
+                            ::core::mem::transmute(val)
+                        }
+                    },
+                }
+            }
+        }
+    }
     ///VK_EXT_inline_uniform_block
     pub mod inline_uniform_block {
         pub use {
@@ -5854,6 +6182,13 @@ pub mod ext {
         pub use {
             crate::vk::EXT_CUSTOM_BORDER_COLOR_SPEC_VERSION as SPEC_VERSION,
             crate::vk::EXT_CUSTOM_BORDER_COLOR_NAME as NAME,
+        };
+    }
+    ///VK_EXT_texture_compression_astc_3d
+    pub mod texture_compression_astc_3d {
+        pub use {
+            crate::vk::EXT_TEXTURE_COMPRESSION_ASTC_3D_SPEC_VERSION as SPEC_VERSION,
+            crate::vk::EXT_TEXTURE_COMPRESSION_ASTC_3D_NAME as NAME,
         };
     }
     ///VK_EXT_private_data
@@ -10980,11 +11315,25 @@ pub mod ext {
             }
         }
     }
+    ///VK_EXT_shader_long_vector
+    pub mod shader_long_vector {
+        pub use {
+            crate::vk::EXT_SHADER_LONG_VECTOR_SPEC_VERSION as SPEC_VERSION,
+            crate::vk::EXT_SHADER_LONG_VECTOR_NAME as NAME,
+        };
+    }
     ///VK_EXT_shader_uniform_buffer_unsized_array
     pub mod shader_uniform_buffer_unsized_array {
         pub use {
             crate::vk::EXT_SHADER_UNIFORM_BUFFER_UNSIZED_ARRAY_SPEC_VERSION as SPEC_VERSION,
             crate::vk::EXT_SHADER_UNIFORM_BUFFER_UNSIZED_ARRAY_NAME as NAME,
+        };
+    }
+    ///VK_EXT_shader_subgroup_partitioned
+    pub mod shader_subgroup_partitioned {
+        pub use {
+            crate::vk::EXT_SHADER_SUBGROUP_PARTITIONED_SPEC_VERSION as SPEC_VERSION,
+            crate::vk::EXT_SHADER_SUBGROUP_PARTITIONED_NAME as NAME,
         };
     }
 }
@@ -20087,6 +20436,13 @@ pub mod khr {
             }
         }
     }
+    ///VK_KHR_internally_synchronized_queues
+    pub mod internally_synchronized_queues {
+        pub use {
+            crate::vk::KHR_INTERNALLY_SYNCHRONIZED_QUEUES_SPEC_VERSION as SPEC_VERSION,
+            crate::vk::KHR_INTERNALLY_SYNCHRONIZED_QUEUES_NAME as NAME,
+        };
+    }
     ///VK_KHR_cooperative_matrix
     pub mod cooperative_matrix {
         use core::ffi::*;
@@ -24494,6 +24850,13 @@ pub mod nv {
             }
         }
     }
+    ///VK_NV_push_constant_bank
+    pub mod push_constant_bank {
+        pub use {
+            crate::vk::NV_PUSH_CONSTANT_BANK_SPEC_VERSION as SPEC_VERSION,
+            crate::vk::NV_PUSH_CONSTANT_BANK_NAME as NAME,
+        };
+    }
     ///VK_NV_cooperative_matrix2
     pub mod cooperative_matrix2 {
         use core::ffi::*;
@@ -24577,6 +24940,80 @@ pub mod nv {
             crate::vk::NV_PRESENT_METERING_SPEC_VERSION as SPEC_VERSION,
             crate::vk::NV_PRESENT_METERING_NAME as NAME,
         };
+    }
+    ///VK_NV_compute_occupancy_priority
+    pub mod compute_occupancy_priority {
+        use core::ffi::*;
+        use crate::vk::*;
+        pub use {
+            crate::vk::NV_COMPUTE_OCCUPANCY_PRIORITY_SPEC_VERSION as SPEC_VERSION,
+            crate::vk::NV_COMPUTE_OCCUPANCY_PRIORITY_NAME as NAME,
+        };
+        ///VK_NV_compute_occupancy_priority device-level functions
+        #[derive(Clone)]
+        pub struct Device {
+            pub(crate) fp: DeviceFn,
+            pub(crate) handle: ash::vk::Device,
+        }
+        impl Device {
+            pub fn new(instance: &ash::Instance, device: &ash::Device) -> Self {
+                let handle = device.handle();
+                let fp = DeviceFn::load(|name| unsafe {
+                    core::mem::transmute(
+                        instance.get_device_proc_addr(handle, name.as_ptr()),
+                    )
+                });
+                Self { handle, fp }
+            }
+            #[inline]
+            pub fn fp(&self) -> &DeviceFn {
+                &self.fp
+            }
+            #[inline]
+            pub fn device(&self) -> ash::vk::Device {
+                self.handle
+            }
+        }
+        #[derive(Clone)]
+        ///Raw VK_NV_compute_occupancy_priority device-level function pointers
+        pub struct DeviceFn {
+            pub cmd_set_compute_occupancy_priority_nv: PFN_vkCmdSetComputeOccupancyPriorityNV,
+        }
+        unsafe impl Send for DeviceFn {}
+        unsafe impl Sync for DeviceFn {}
+        impl DeviceFn {
+            pub fn load<F: FnMut(&CStr) -> *const c_void>(mut f: F) -> Self {
+                Self::load_erased(&mut f)
+            }
+            fn load_erased(_f: &mut dyn FnMut(&CStr) -> *const c_void) -> Self {
+                Self {
+                    cmd_set_compute_occupancy_priority_nv: unsafe {
+                        unsafe extern "system" fn cmd_set_compute_occupancy_priority_nv(
+                            _command_buffer: CommandBuffer,
+                            _p_parameters: *const ComputeOccupancyPriorityParametersNV<
+                                '_,
+                            >,
+                        ) {
+                            panic!(
+                                concat!(
+                                    "Unable to load ",
+                                    stringify!(cmd_set_compute_occupancy_priority_nv),
+                                ),
+                            )
+                        }
+                        let cname = CStr::from_bytes_with_nul_unchecked(
+                            b"vkCmdSetComputeOccupancyPriorityNV\0",
+                        );
+                        let val = _f(cname);
+                        if val.is_null() {
+                            cmd_set_compute_occupancy_priority_nv
+                        } else {
+                            ::core::mem::transmute(val)
+                        }
+                    },
+                }
+            }
+        }
     }
 }
 ///Extensions tagged NVX
@@ -24787,6 +25224,7 @@ pub mod nvx {
             pub get_image_view_handle_nvx: PFN_vkGetImageViewHandleNVX,
             pub get_image_view_handle64_nvx: PFN_vkGetImageViewHandle64NVX,
             pub get_image_view_address_nvx: PFN_vkGetImageViewAddressNVX,
+            pub get_device_combined_image_sampler_index_nvx: PFN_vkGetDeviceCombinedImageSamplerIndexNVX,
         }
         unsafe impl Send for DeviceFn {}
         unsafe impl Sync for DeviceFn {}
@@ -24859,6 +25297,29 @@ pub mod nvx {
                         let val = _f(cname);
                         if val.is_null() {
                             get_image_view_address_nvx
+                        } else {
+                            ::core::mem::transmute(val)
+                        }
+                    },
+                    get_device_combined_image_sampler_index_nvx: unsafe {
+                        unsafe extern "system" fn get_device_combined_image_sampler_index_nvx(
+                            _device: ash::vk::Device,
+                            _image_view_index: u64,
+                            _sampler_index: u64,
+                        ) -> u64 {
+                            panic!(
+                                concat!(
+                                    "Unable to load ",
+                                    stringify!(get_device_combined_image_sampler_index_nvx),
+                                ),
+                            )
+                        }
+                        let cname = CStr::from_bytes_with_nul_unchecked(
+                            b"vkGetDeviceCombinedImageSamplerIndexNVX\0",
+                        );
+                        let val = _f(cname);
+                        if val.is_null() {
+                            get_device_combined_image_sampler_index_nvx
                         } else {
                             ::core::mem::transmute(val)
                         }
@@ -25037,129 +25498,6 @@ pub mod ohos {
                         let val = _f(cname);
                         if val.is_null() {
                             create_surface_ohos
-                        } else {
-                            ::core::mem::transmute(val)
-                        }
-                    },
-                }
-            }
-        }
-    }
-    ///VK_OHOS_native_buffer
-    pub mod native_buffer {
-        use core::ffi::*;
-        use crate::vk::*;
-        pub use {
-            crate::vk::OHOS_NATIVE_BUFFER_SPEC_VERSION as SPEC_VERSION,
-            crate::vk::OHOS_NATIVE_BUFFER_NAME as NAME,
-        };
-        ///VK_OHOS_native_buffer device-level functions
-        #[derive(Clone)]
-        pub struct Device {
-            pub(crate) fp: DeviceFn,
-            pub(crate) handle: ash::vk::Device,
-        }
-        impl Device {
-            pub fn new(instance: &ash::Instance, device: &ash::Device) -> Self {
-                let handle = device.handle();
-                let fp = DeviceFn::load(|name| unsafe {
-                    core::mem::transmute(
-                        instance.get_device_proc_addr(handle, name.as_ptr()),
-                    )
-                });
-                Self { handle, fp }
-            }
-            #[inline]
-            pub fn fp(&self) -> &DeviceFn {
-                &self.fp
-            }
-            #[inline]
-            pub fn device(&self) -> ash::vk::Device {
-                self.handle
-            }
-        }
-        #[derive(Clone)]
-        ///Raw VK_OHOS_native_buffer device-level function pointers
-        pub struct DeviceFn {
-            pub get_swapchain_gralloc_usage_ohos: PFN_vkGetSwapchainGrallocUsageOHOS,
-            pub acquire_image_ohos: PFN_vkAcquireImageOHOS,
-            pub queue_signal_release_image_ohos: PFN_vkQueueSignalReleaseImageOHOS,
-        }
-        unsafe impl Send for DeviceFn {}
-        unsafe impl Sync for DeviceFn {}
-        impl DeviceFn {
-            pub fn load<F: FnMut(&CStr) -> *const c_void>(mut f: F) -> Self {
-                Self::load_erased(&mut f)
-            }
-            fn load_erased(_f: &mut dyn FnMut(&CStr) -> *const c_void) -> Self {
-                Self {
-                    get_swapchain_gralloc_usage_ohos: unsafe {
-                        unsafe extern "system" fn get_swapchain_gralloc_usage_ohos(
-                            _device: ash::vk::Device,
-                            _format: Format,
-                            _image_usage: ImageUsageFlags,
-                            _gralloc_usage: *mut u64,
-                        ) -> Result {
-                            panic!(
-                                concat!(
-                                    "Unable to load ",
-                                    stringify!(get_swapchain_gralloc_usage_ohos),
-                                ),
-                            )
-                        }
-                        let cname = CStr::from_bytes_with_nul_unchecked(
-                            b"vkGetSwapchainGrallocUsageOHOS\0",
-                        );
-                        let val = _f(cname);
-                        if val.is_null() {
-                            get_swapchain_gralloc_usage_ohos
-                        } else {
-                            ::core::mem::transmute(val)
-                        }
-                    },
-                    acquire_image_ohos: unsafe {
-                        unsafe extern "system" fn acquire_image_ohos(
-                            _device: ash::vk::Device,
-                            _image: Image,
-                            _native_fence_fd: i32,
-                            _semaphore: Semaphore,
-                            _fence: Fence,
-                        ) -> Result {
-                            panic!(
-                                concat!("Unable to load ", stringify!(acquire_image_ohos)),
-                            )
-                        }
-                        let cname = CStr::from_bytes_with_nul_unchecked(
-                            b"vkAcquireImageOHOS\0",
-                        );
-                        let val = _f(cname);
-                        if val.is_null() {
-                            acquire_image_ohos
-                        } else {
-                            ::core::mem::transmute(val)
-                        }
-                    },
-                    queue_signal_release_image_ohos: unsafe {
-                        unsafe extern "system" fn queue_signal_release_image_ohos(
-                            _queue: Queue,
-                            _wait_semaphore_count: u32,
-                            _p_wait_semaphores: *const Semaphore,
-                            _image: Image,
-                            _p_native_fence_fd: *mut i32,
-                        ) -> Result {
-                            panic!(
-                                concat!(
-                                    "Unable to load ",
-                                    stringify!(queue_signal_release_image_ohos),
-                                ),
-                            )
-                        }
-                        let cname = CStr::from_bytes_with_nul_unchecked(
-                            b"vkQueueSignalReleaseImageOHOS\0",
-                        );
-                        let val = _f(cname);
-                        if val.is_null() {
-                            queue_signal_release_image_ohos
                         } else {
                             ::core::mem::transmute(val)
                         }

@@ -1972,9 +1972,17 @@ impl VideoEncodeRgbChromaOffsetFlagsVALVE {
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
-///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSwapchainImageUsageFlagBitsOHOS.html>
-pub struct SwapchainImageUsageFlagsOHOS(pub(crate) Flags);
-vk_bitflags_wrapped!(SwapchainImageUsageFlagsOHOS, Flags);
-impl SwapchainImageUsageFlagsOHOS {
-    pub const SHARED: Self = Self(0b1);
+///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkSpirvResourceTypeFlagBitsEXT.html>
+pub struct SpirvResourceTypeFlagsEXT(pub(crate) Flags);
+vk_bitflags_wrapped!(SpirvResourceTypeFlagsEXT, Flags);
+impl SpirvResourceTypeFlagsEXT {
+    pub const ALL: Self = Self(0x7FFF_FFFF);
+    pub const SAMPLER: Self = Self(0b1);
+    pub const SAMPLED_IMAGE: Self = Self(0b10);
+    pub const READ_ONLY_IMAGE: Self = Self(0b100);
+    pub const READ_WRITE_IMAGE: Self = Self(0b1000);
+    pub const COMBINED_SAMPLED_IMAGE: Self = Self(0b1_0000);
+    pub const UNIFORM_BUFFER: Self = Self(0b10_0000);
+    pub const READ_ONLY_STORAGE_BUFFER: Self = Self(0b100_0000);
+    pub const READ_WRITE_STORAGE_BUFFER: Self = Self(0b1000_0000);
 }

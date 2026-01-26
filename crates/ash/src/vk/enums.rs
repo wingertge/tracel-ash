@@ -3450,6 +3450,30 @@ impl DataGraphModelCacheTypeQCOM {
 impl DataGraphModelCacheTypeQCOM {
     pub const GENERIC_BINARY: Self = Self(0);
 }
+#[derive(Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Default)]
+#[repr(transparent)]
+///<https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDescriptorMappingSourceEXT.html>
+pub struct DescriptorMappingSourceEXT(pub(crate) i32);
+impl DescriptorMappingSourceEXT {
+    #[inline]
+    pub const fn from_raw(x: i32) -> Self {
+        Self(x)
+    }
+    #[inline]
+    pub const fn as_raw(self) -> i32 {
+        self.0
+    }
+}
+impl DescriptorMappingSourceEXT {
+    pub const HEAP_WITH_CONSTANT_OFFSET: Self = Self(0);
+    pub const HEAP_WITH_PUSH_INDEX: Self = Self(1);
+    pub const HEAP_WITH_INDIRECT_INDEX: Self = Self(2);
+    pub const HEAP_WITH_INDIRECT_INDEX_ARRAY: Self = Self(3);
+    pub const RESOURCE_HEAP_DATA: Self = Self(4);
+    pub const PUSH_DATA: Self = Self(5);
+    pub const PUSH_ADDRESS: Self = Self(6);
+    pub const INDIRECT_ADDRESS: Self = Self(7);
+}
 impl fmt::Debug for ObjectType {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         let name = match *self {

@@ -1051,6 +1051,87 @@ impl StructureType {
     pub const EXECUTION_GRAPH_PIPELINE_CREATE_INFO_AMDX: Self = Self(1_000_134_003);
     pub const PIPELINE_SHADER_STAGE_NODE_CREATE_INFO_AMDX: Self = Self(1_000_134_004);
 }
+///Generated from 'VK_EXT_descriptor_heap'
+impl AccessFlags2 {
+    pub const SAMPLER_HEAP_READ_EXT: Self = Self(
+        0b10_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000,
+    );
+    pub const RESOURCE_HEAP_READ_EXT: Self = Self(
+        0b100_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000_0000,
+    );
+}
+///Generated from 'VK_EXT_descriptor_heap'
+impl BufferUsageFlags {
+    pub const DESCRIPTOR_HEAP_EXT: Self = Self(0b1_0000_0000_0000_0000_0000_0000_0000);
+}
+///Generated from 'VK_EXT_descriptor_heap'
+impl BufferUsageFlags2 {
+    pub const DESCRIPTOR_HEAP_EXT: Self = Self(0b1_0000_0000_0000_0000_0000_0000_0000);
+}
+///Generated from 'VK_EXT_descriptor_heap'
+impl DescriptorMappingSourceEXT {
+    pub const HEAP_WITH_SHADER_RECORD_INDEX: Self = Self(8);
+    pub const SHADER_RECORD_DATA: Self = Self(9);
+    pub const SHADER_RECORD_ADDRESS: Self = Self(10);
+}
+///Generated from 'VK_EXT_descriptor_heap'
+impl ImageCreateFlags {
+    pub const DESCRIPTOR_HEAP_CAPTURE_REPLAY_EXT: Self = Self(0b1_0000_0000_0000_0000);
+}
+///Generated from 'VK_EXT_descriptor_heap'
+impl IndirectCommandsTokenTypeEXT {
+    pub const PUSH_DATA: Self = Self(1_000_135_000);
+    pub const PUSH_DATA_SEQUENCE_INDEX: Self = Self(1_000_135_001);
+}
+///Generated from 'VK_EXT_descriptor_heap'
+impl IndirectCommandsTokenTypeNV {
+    pub const PUSH_DATA: Self = Self(1_000_135_000);
+}
+///Generated from 'VK_EXT_descriptor_heap'
+impl PipelineCreateFlags2 {
+    pub const DESCRIPTOR_HEAP_EXT: Self = Self(
+        0b1_0000_0000_0000_0000_0000_0000_0000_0000_0000,
+    );
+}
+///Generated from 'VK_EXT_descriptor_heap'
+impl ShaderCreateFlagsEXT {
+    pub const DESCRIPTOR_HEAP: Self = Self(0b100_0000_0000);
+}
+///Generated from 'VK_EXT_descriptor_heap'
+impl SpirvResourceTypeFlagsEXT {
+    pub const ACCELERATION_STRUCTURE: Self = Self(0b1_0000_0000);
+    pub const TENSOR_ARM: Self = Self(0b10_0000_0000);
+}
+///Generated from 'VK_EXT_descriptor_heap'
+impl StructureType {
+    pub const TEXEL_BUFFER_DESCRIPTOR_INFO_EXT: Self = Self(1_000_135_000);
+    pub const IMAGE_DESCRIPTOR_INFO_EXT: Self = Self(1_000_135_001);
+    pub const RESOURCE_DESCRIPTOR_INFO_EXT: Self = Self(1_000_135_002);
+    pub const BIND_HEAP_INFO_EXT: Self = Self(1_000_135_003);
+    pub const PUSH_DATA_INFO_EXT: Self = Self(1_000_135_004);
+    pub const DESCRIPTOR_SET_AND_BINDING_MAPPING_EXT: Self = Self(1_000_135_005);
+    pub const SHADER_DESCRIPTOR_SET_AND_BINDING_MAPPING_INFO_EXT: Self = Self(
+        1_000_135_006,
+    );
+    pub const OPAQUE_CAPTURE_DATA_CREATE_INFO_EXT: Self = Self(1_000_135_007);
+    pub const PHYSICAL_DEVICE_DESCRIPTOR_HEAP_PROPERTIES_EXT: Self = Self(1_000_135_008);
+    pub const PHYSICAL_DEVICE_DESCRIPTOR_HEAP_FEATURES_EXT: Self = Self(1_000_135_009);
+    pub const COMMAND_BUFFER_INHERITANCE_DESCRIPTOR_HEAP_INFO_EXT: Self = Self(
+        1_000_135_010,
+    );
+    pub const SAMPLER_CUSTOM_BORDER_COLOR_INDEX_CREATE_INFO_EXT: Self = Self(
+        1_000_135_011,
+    );
+    pub const INDIRECT_COMMANDS_LAYOUT_PUSH_DATA_TOKEN_NV: Self = Self(1_000_135_012);
+    pub const SUBSAMPLED_IMAGE_FORMAT_PROPERTIES_EXT: Self = Self(1_000_135_013);
+    pub const PHYSICAL_DEVICE_DESCRIPTOR_HEAP_TENSOR_PROPERTIES_ARM: Self = Self(
+        1_000_135_014,
+    );
+}
+///Generated from 'VK_EXT_descriptor_heap'
+impl TensorCreateFlagsARM {
+    pub const DESCRIPTOR_HEAP_CAPTURE_REPLAY: Self = Self(0b1000);
+}
 ///Generated from 'VK_AMD_mixed_attachment_samples'
 impl StructureType {
     pub const ATTACHMENT_SAMPLE_COUNT_INFO_AMD: Self = Self(1_000_044_008);
@@ -1856,7 +1937,7 @@ impl StructureType {
 }
 ///Generated from 'VK_NV_shader_subgroup_partitioned'
 impl SubgroupFeatureFlags {
-    pub const PARTITIONED_NV: Self = Self(0b1_0000_0000);
+    pub const PARTITIONED_NV: Self = Self::PARTITIONED_EXT;
 }
 ///Generated from 'VK_KHR_depth_stencil_resolve'
 impl ResolveModeFlags {
@@ -2640,6 +2721,45 @@ impl StructureType {
         1_000_287_002,
     );
 }
+///Generated from 'VK_EXT_texture_compression_astc_3d'
+impl Format {
+    pub const ASTC_3X3X3_UNORM_BLOCK_EXT: Self = Self(1_000_288_000);
+    pub const ASTC_3X3X3_SRGB_BLOCK_EXT: Self = Self(1_000_288_001);
+    pub const ASTC_3X3X3_SFLOAT_BLOCK_EXT: Self = Self(1_000_288_002);
+    pub const ASTC_4X3X3_UNORM_BLOCK_EXT: Self = Self(1_000_288_003);
+    pub const ASTC_4X3X3_SRGB_BLOCK_EXT: Self = Self(1_000_288_004);
+    pub const ASTC_4X3X3_SFLOAT_BLOCK_EXT: Self = Self(1_000_288_005);
+    pub const ASTC_4X4X3_UNORM_BLOCK_EXT: Self = Self(1_000_288_006);
+    pub const ASTC_4X4X3_SRGB_BLOCK_EXT: Self = Self(1_000_288_007);
+    pub const ASTC_4X4X3_SFLOAT_BLOCK_EXT: Self = Self(1_000_288_008);
+    pub const ASTC_4X4X4_UNORM_BLOCK_EXT: Self = Self(1_000_288_009);
+    pub const ASTC_4X4X4_SRGB_BLOCK_EXT: Self = Self(1_000_288_010);
+    pub const ASTC_4X4X4_SFLOAT_BLOCK_EXT: Self = Self(1_000_288_011);
+    pub const ASTC_5X4X4_UNORM_BLOCK_EXT: Self = Self(1_000_288_012);
+    pub const ASTC_5X4X4_SRGB_BLOCK_EXT: Self = Self(1_000_288_013);
+    pub const ASTC_5X4X4_SFLOAT_BLOCK_EXT: Self = Self(1_000_288_014);
+    pub const ASTC_5X5X4_UNORM_BLOCK_EXT: Self = Self(1_000_288_015);
+    pub const ASTC_5X5X4_SRGB_BLOCK_EXT: Self = Self(1_000_288_016);
+    pub const ASTC_5X5X4_SFLOAT_BLOCK_EXT: Self = Self(1_000_288_017);
+    pub const ASTC_5X5X5_UNORM_BLOCK_EXT: Self = Self(1_000_288_018);
+    pub const ASTC_5X5X5_SRGB_BLOCK_EXT: Self = Self(1_000_288_019);
+    pub const ASTC_5X5X5_SFLOAT_BLOCK_EXT: Self = Self(1_000_288_020);
+    pub const ASTC_6X5X5_UNORM_BLOCK_EXT: Self = Self(1_000_288_021);
+    pub const ASTC_6X5X5_SRGB_BLOCK_EXT: Self = Self(1_000_288_022);
+    pub const ASTC_6X5X5_SFLOAT_BLOCK_EXT: Self = Self(1_000_288_023);
+    pub const ASTC_6X6X5_UNORM_BLOCK_EXT: Self = Self(1_000_288_024);
+    pub const ASTC_6X6X5_SRGB_BLOCK_EXT: Self = Self(1_000_288_025);
+    pub const ASTC_6X6X5_SFLOAT_BLOCK_EXT: Self = Self(1_000_288_026);
+    pub const ASTC_6X6X6_UNORM_BLOCK_EXT: Self = Self(1_000_288_027);
+    pub const ASTC_6X6X6_SRGB_BLOCK_EXT: Self = Self(1_000_288_028);
+    pub const ASTC_6X6X6_SFLOAT_BLOCK_EXT: Self = Self(1_000_288_029);
+}
+///Generated from 'VK_EXT_texture_compression_astc_3d'
+impl StructureType {
+    pub const PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_3D_FEATURES_EXT: Self = Self(
+        1_000_288_000,
+    );
+}
 ///Generated from 'VK_KHR_pipeline_library'
 impl PipelineCreateFlags {
     pub const LIBRARY_KHR: Self = Self(0b1000_0000_0000);
@@ -3011,7 +3131,7 @@ impl DescriptorSetLayoutCreateFlags {
 }
 ///Generated from 'VK_EXT_descriptor_buffer'
 impl ImageCreateFlags {
-    pub const DESCRIPTOR_BUFFER_CAPTURE_REPLAY_EXT: Self = Self(0b1_0000_0000_0000_0000);
+    pub const DESCRIPTOR_BUFFER_CAPTURE_REPLAY_EXT: Self = Self::DESCRIPTOR_HEAP_CAPTURE_REPLAY_EXT;
 }
 ///Generated from 'VK_EXT_descriptor_buffer'
 impl ImageViewCreateFlags {
@@ -4649,6 +4769,16 @@ impl StructureType {
         1_000_499_000,
     );
 }
+///Generated from 'VK_KHR_internally_synchronized_queues'
+impl DeviceQueueCreateFlags {
+    pub const INTERNALLY_SYNCHRONIZED_KHR: Self = Self(0b100);
+}
+///Generated from 'VK_KHR_internally_synchronized_queues'
+impl StructureType {
+    pub const PHYSICAL_DEVICE_INTERNALLY_SYNCHRONIZED_QUEUES_FEATURES_KHR: Self = Self(
+        1_000_504_000,
+    );
+}
 ///Generated from 'VK_NV_low_latency2'
 impl StructureType {
     pub const LATENCY_SLEEP_MODE_INFO_NV: Self = Self(1_000_505_000);
@@ -5387,6 +5517,14 @@ impl StructureType {
 impl StructureType {
     pub const PHYSICAL_DEVICE_SHADER_FMA_FEATURES_KHR: Self = Self(1_000_579_000);
 }
+///Generated from 'VK_NV_push_constant_bank'
+impl StructureType {
+    pub const PUSH_CONSTANT_BANK_INFO_NV: Self = Self(1_000_580_000);
+    pub const PHYSICAL_DEVICE_PUSH_CONSTANT_BANK_FEATURES_NV: Self = Self(1_000_580_001);
+    pub const PHYSICAL_DEVICE_PUSH_CONSTANT_BANK_PROPERTIES_NV: Self = Self(
+        1_000_580_002,
+    );
+}
 ///Generated from 'VK_EXT_ray_tracing_invocation_reorder'
 impl StructureType {
     pub const PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES_EXT: Self = Self(
@@ -5445,12 +5583,6 @@ impl VideoSessionCreateFlagsKHR {
 ///Generated from 'VK_OHOS_surface'
 impl StructureType {
     pub const SURFACE_CREATE_INFO_OHOS: Self = Self(1_000_685_000);
-}
-///Generated from 'VK_OHOS_native_buffer'
-impl StructureType {
-    pub const NATIVE_BUFFER_OHOS: Self = Self(1_000_453_001);
-    pub const SWAPCHAIN_IMAGE_CREATE_INFO_OHOS: Self = Self(1_000_453_002);
-    pub const PHYSICAL_DEVICE_PRESENTATION_PROPERTIES_OHOS: Self = Self(1_000_453_003);
 }
 ///Generated from 'VK_HUAWEI_hdr_vivid'
 impl StructureType {
@@ -5711,6 +5843,15 @@ impl StructureType {
     pub const RENDERING_END_INFO_KHR: Self = Self(1_000_619_003);
     pub const RESOLVE_IMAGE_MODE_INFO_KHR: Self = Self(1_000_630_004);
 }
+///Generated from 'VK_EXT_shader_long_vector'
+impl StructureType {
+    pub const PHYSICAL_DEVICE_SHADER_LONG_VECTOR_FEATURES_EXT: Self = Self(
+        1_000_635_000,
+    );
+    pub const PHYSICAL_DEVICE_SHADER_LONG_VECTOR_PROPERTIES_EXT: Self = Self(
+        1_000_635_001,
+    );
+}
 ///Generated from 'VK_SEC_pipeline_cache_incremental_mode'
 impl StructureType {
     pub const PHYSICAL_DEVICE_PIPELINE_CACHE_INCREMENTAL_MODE_FEATURES_SEC: Self = Self(
@@ -5722,6 +5863,23 @@ impl StructureType {
     pub const PHYSICAL_DEVICE_SHADER_UNIFORM_BUFFER_UNSIZED_ARRAY_FEATURES_EXT: Self = Self(
         1_000_642_000,
     );
+}
+///Generated from 'VK_NV_compute_occupancy_priority'
+impl StructureType {
+    pub const COMPUTE_OCCUPANCY_PRIORITY_PARAMETERS_NV: Self = Self(1_000_645_000);
+    pub const PHYSICAL_DEVICE_COMPUTE_OCCUPANCY_PRIORITY_FEATURES_NV: Self = Self(
+        1_000_645_001,
+    );
+}
+///Generated from 'VK_EXT_shader_subgroup_partitioned'
+impl StructureType {
+    pub const PHYSICAL_DEVICE_SHADER_SUBGROUP_PARTITIONED_FEATURES_EXT: Self = Self(
+        1_000_662_000,
+    );
+}
+///Generated from 'VK_EXT_shader_subgroup_partitioned'
+impl SubgroupFeatureFlags {
+    pub const PARTITIONED_EXT: Self = Self(0b1_0000_0000);
 }
 pub const KHR_SURFACE_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_KHR_surface\0")
@@ -6273,7 +6431,7 @@ pub type PFN_vkCmdCuLaunchKernelNVX = unsafe extern "system" fn(
 pub const NVX_IMAGE_VIEW_HANDLE_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_NVX_image_view_handle\0")
 };
-pub const NVX_IMAGE_VIEW_HANDLE_SPEC_VERSION: u32 = 3u32;
+pub const NVX_IMAGE_VIEW_HANDLE_SPEC_VERSION: u32 = 4u32;
 #[allow(non_camel_case_types)]
 pub type PFN_vkGetImageViewHandleNVX = unsafe extern "system" fn(
     device: ash::vk::Device,
@@ -6290,6 +6448,12 @@ pub type PFN_vkGetImageViewAddressNVX = unsafe extern "system" fn(
     image_view: ImageView,
     p_properties: *mut ImageViewAddressPropertiesNVX<'_>,
 ) -> Result;
+#[allow(non_camel_case_types)]
+pub type PFN_vkGetDeviceCombinedImageSamplerIndexNVX = unsafe extern "system" fn(
+    device: ash::vk::Device,
+    image_view_index: u64,
+    sampler_index: u64,
+) -> u64;
 pub const AMD_DRAW_INDIRECT_COUNT_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_AMD_draw_indirect_count\0")
 };
@@ -7233,6 +7397,70 @@ pub type PFN_vkCmdDispatchGraphIndirectCountAMDX = unsafe extern "system" fn(
     scratch_size: DeviceSize,
     count_info: DeviceAddress,
 );
+pub const EXT_DESCRIPTOR_HEAP_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_EXT_descriptor_heap\0")
+};
+pub const EXT_DESCRIPTOR_HEAP_SPEC_VERSION: u32 = 1u32;
+#[allow(non_camel_case_types)]
+pub type PFN_vkGetPhysicalDeviceDescriptorSizeEXT = unsafe extern "system" fn(
+    physical_device: PhysicalDevice,
+    descriptor_type: DescriptorType,
+) -> DeviceSize;
+#[allow(non_camel_case_types)]
+pub type PFN_vkWriteSamplerDescriptorsEXT = unsafe extern "system" fn(
+    device: ash::vk::Device,
+    sampler_count: u32,
+    p_samplers: *const SamplerCreateInfo<'_>,
+    p_descriptors: *const HostAddressRangeEXT<'_>,
+) -> Result;
+#[allow(non_camel_case_types)]
+pub type PFN_vkWriteResourceDescriptorsEXT = unsafe extern "system" fn(
+    device: ash::vk::Device,
+    resource_count: u32,
+    p_resources: *const ResourceDescriptorInfoEXT<'_>,
+    p_descriptors: *const HostAddressRangeEXT<'_>,
+) -> Result;
+#[allow(non_camel_case_types)]
+pub type PFN_vkCmdBindSamplerHeapEXT = unsafe extern "system" fn(
+    command_buffer: CommandBuffer,
+    p_bind_info: *const BindHeapInfoEXT<'_>,
+);
+#[allow(non_camel_case_types)]
+pub type PFN_vkCmdBindResourceHeapEXT = unsafe extern "system" fn(
+    command_buffer: CommandBuffer,
+    p_bind_info: *const BindHeapInfoEXT<'_>,
+);
+#[allow(non_camel_case_types)]
+pub type PFN_vkCmdPushDataEXT = unsafe extern "system" fn(
+    command_buffer: CommandBuffer,
+    p_push_data_info: *const PushDataInfoEXT<'_>,
+);
+#[allow(non_camel_case_types)]
+pub type PFN_vkGetImageOpaqueCaptureDataEXT = unsafe extern "system" fn(
+    device: ash::vk::Device,
+    image_count: u32,
+    p_images: *const Image,
+    p_datas: *mut HostAddressRangeEXT<'_>,
+) -> Result;
+#[allow(non_camel_case_types)]
+pub type PFN_vkRegisterCustomBorderColorEXT = unsafe extern "system" fn(
+    device: ash::vk::Device,
+    p_border_color: *const SamplerCustomBorderColorCreateInfoEXT<'_>,
+    request_index: Bool32,
+    p_index: *mut u32,
+) -> Result;
+#[allow(non_camel_case_types)]
+pub type PFN_vkUnregisterCustomBorderColorEXT = unsafe extern "system" fn(
+    device: ash::vk::Device,
+    index: u32,
+);
+#[allow(non_camel_case_types)]
+pub type PFN_vkGetTensorOpaqueCaptureDataARM = unsafe extern "system" fn(
+    device: ash::vk::Device,
+    tensor_count: u32,
+    p_tensors: *const TensorARM,
+    p_datas: *mut HostAddressRangeEXT<'_>,
+) -> Result;
 pub const AMD_MIXED_ATTACHMENT_SAMPLES_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_AMD_mixed_attachment_samples\0")
 };
@@ -8088,7 +8316,7 @@ pub type PFN_vkCreateMetalSurfaceEXT = unsafe extern "system" fn(
 pub const EXT_FRAGMENT_DENSITY_MAP_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_EXT_fragment_density_map\0")
 };
-pub const EXT_FRAGMENT_DENSITY_MAP_SPEC_VERSION: u32 = 2u32;
+pub const EXT_FRAGMENT_DENSITY_MAP_SPEC_VERSION: u32 = 3u32;
 pub const EXT_SCALAR_BLOCK_LAYOUT_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_EXT_scalar_block_layout\0")
 };
@@ -8628,6 +8856,10 @@ pub const EXT_CUSTOM_BORDER_COLOR_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_EXT_custom_border_color\0")
 };
 pub const EXT_CUSTOM_BORDER_COLOR_SPEC_VERSION: u32 = 12u32;
+pub const EXT_TEXTURE_COMPRESSION_ASTC_3D_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_EXT_texture_compression_astc_3d\0")
+};
+pub const EXT_TEXTURE_COMPRESSION_ASTC_3D_SPEC_VERSION: u32 = 1u32;
 pub const GOOGLE_USER_TYPE_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_GOOGLE_user_type\0")
 };
@@ -10223,6 +10455,10 @@ pub const EXT_DYNAMIC_RENDERING_UNUSED_ATTACHMENTS_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_EXT_dynamic_rendering_unused_attachments\0")
 };
 pub const EXT_DYNAMIC_RENDERING_UNUSED_ATTACHMENTS_SPEC_VERSION: u32 = 1u32;
+pub const KHR_INTERNALLY_SYNCHRONIZED_QUEUES_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_KHR_internally_synchronized_queues\0")
+};
+pub const KHR_INTERNALLY_SYNCHRONIZED_QUEUES_SPEC_VERSION: u32 = 1u32;
 pub const NV_LOW_LATENCY2_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_NV_low_latency2\0")
 };
@@ -10704,6 +10940,10 @@ pub const KHR_SHADER_FMA_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_KHR_shader_fma\0")
 };
 pub const KHR_SHADER_FMA_SPEC_VERSION: u32 = 1u32;
+pub const NV_PUSH_CONSTANT_BANK_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_NV_push_constant_bank\0")
+};
+pub const NV_PUSH_CONSTANT_BANK_SPEC_VERSION: u32 = 1u32;
 pub const EXT_RAY_TRACING_INVOCATION_REORDER_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_EXT_ray_tracing_invocation_reorder\0")
 };
@@ -10730,33 +10970,6 @@ pub type PFN_vkCreateSurfaceOHOS = unsafe extern "system" fn(
     p_create_info: *const SurfaceCreateInfoOHOS<'_>,
     p_allocator: *const AllocationCallbacks,
     p_surface: *mut SurfaceKHR,
-) -> Result;
-pub const OHOS_NATIVE_BUFFER_NAME: &CStr = unsafe {
-    CStr::from_bytes_with_nul_unchecked(b"VK_OHOS_native_buffer\0")
-};
-pub const OHOS_NATIVE_BUFFER_SPEC_VERSION: u32 = 1u32;
-#[allow(non_camel_case_types)]
-pub type PFN_vkGetSwapchainGrallocUsageOHOS = unsafe extern "system" fn(
-    device: ash::vk::Device,
-    format: Format,
-    image_usage: ImageUsageFlags,
-    gralloc_usage: *mut u64,
-) -> Result;
-#[allow(non_camel_case_types)]
-pub type PFN_vkAcquireImageOHOS = unsafe extern "system" fn(
-    device: ash::vk::Device,
-    image: Image,
-    native_fence_fd: i32,
-    semaphore: Semaphore,
-    fence: Fence,
-) -> Result;
-#[allow(non_camel_case_types)]
-pub type PFN_vkQueueSignalReleaseImageOHOS = unsafe extern "system" fn(
-    queue: Queue,
-    wait_semaphore_count: u32,
-    p_wait_semaphores: *const Semaphore,
-    image: Image,
-    p_native_fence_fd: *mut i32,
 ) -> Result;
 pub const HUAWEI_HDR_VIVID_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_HUAWEI_hdr_vivid\0")
@@ -10867,6 +11080,10 @@ pub const KHR_MAINTENANCE10_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_KHR_maintenance10\0")
 };
 pub const KHR_MAINTENANCE10_SPEC_VERSION: u32 = 1u32;
+pub const EXT_SHADER_LONG_VECTOR_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_EXT_shader_long_vector\0")
+};
+pub const EXT_SHADER_LONG_VECTOR_SPEC_VERSION: u32 = 1u32;
 pub const SEC_PIPELINE_CACHE_INCREMENTAL_MODE_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_SEC_pipeline_cache_incremental_mode\0")
 };
@@ -10875,3 +11092,16 @@ pub const EXT_SHADER_UNIFORM_BUFFER_UNSIZED_ARRAY_NAME: &CStr = unsafe {
     CStr::from_bytes_with_nul_unchecked(b"VK_EXT_shader_uniform_buffer_unsized_array\0")
 };
 pub const EXT_SHADER_UNIFORM_BUFFER_UNSIZED_ARRAY_SPEC_VERSION: u32 = 1u32;
+pub const NV_COMPUTE_OCCUPANCY_PRIORITY_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_NV_compute_occupancy_priority\0")
+};
+pub const NV_COMPUTE_OCCUPANCY_PRIORITY_SPEC_VERSION: u32 = 1u32;
+#[allow(non_camel_case_types)]
+pub type PFN_vkCmdSetComputeOccupancyPriorityNV = unsafe extern "system" fn(
+    command_buffer: CommandBuffer,
+    p_parameters: *const ComputeOccupancyPriorityParametersNV<'_>,
+);
+pub const EXT_SHADER_SUBGROUP_PARTITIONED_NAME: &CStr = unsafe {
+    CStr::from_bytes_with_nul_unchecked(b"VK_EXT_shader_subgroup_partitioned\0")
+};
+pub const EXT_SHADER_SUBGROUP_PARTITIONED_SPEC_VERSION: u32 = 1u32;
