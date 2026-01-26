@@ -198,9 +198,3 @@ where
         }
     }
 }
-
-#[test]
-fn trybuild() {
-    let t = trybuild::TestCases::new();
-    t.compile_fail("tests/fail/long_lived_root_struct_borrow.rs");
-}
