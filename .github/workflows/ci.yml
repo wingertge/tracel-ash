@@ -11,15 +11,15 @@ jobs:
       - run: cargo check --workspace --all-targets --all-features
 
   check_msrv:
-    name: Check ash, ash-window and ash-rewrite MSRV (1.69.0)
+    name: Check ash MSRV (1.88.0)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: dtolnay/rust-toolchain@1.69.0
-      - name: Check ash, ash-window and ash-rewrite
-        run: cargo check -p ash -p ash-rewrite -p ash-window --all-features
+      - uses: dtolnay/rust-toolchain@1.88.0
+      - name: Check ash
+        run: cargo check -p tracel-ash --all-features
       - name: Check ash with no_std
-        run: cargo check -p ash --no-default-features
+        run: cargo check -p tracel-ash --no-default-features
 
   # TODO: add a similar job for the rewrite once that generates code
   generated:
@@ -72,7 +72,7 @@ jobs:
         # Only test the core ash, ash-rewrite and ash-window crate, where features reside.
         # The examples crate would otherwise enable all default features again,
         # making this test moot.
-        run: cargo clippy --target ${{ matrix.target }} -p ash -p ash-rewrite -p ash-window --no-default-features -- -D warnings
+        run: cargo clippy --target ${{ matrix.target }} -p tracel-ash --no-default-features -- -D warnings
       - name: Clippy lint with all features
         # Examples don't compile for iOS currently due to lacking run_return()
         if: ${{ matrix.target != 'aarch64-apple-ios' }}

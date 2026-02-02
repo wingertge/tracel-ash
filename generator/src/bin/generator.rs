@@ -6,9 +6,9 @@ fn main() {
     let cwd = std::env::current_dir().unwrap();
 
     let (base_path, src_dir) = if cwd.ends_with("generator") {
-        (Path::new("."), Path::new("../ash/src"))
+        (Path::new("."), Path::new("../crates/ash/src"))
     } else {
-        (Path::new("generator"), Path::new("ash/src"))
+        (Path::new("generator"), Path::new("crates/ash/src"))
     };
 
     let headers = base_path.join(headers);
